@@ -1,0 +1,130 @@
+.footer {
+    background: linear-gradient(135deg, var(--color-secondary-dark) 0%, var(--color-bg-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-3xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-3xl);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.footerContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footerTitle {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footerText {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.contactInfo p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.contactInfo a {
+    color: var(--color-white);
+    transition: color var(--transition-fast);
+}
+
+.contactInfo a:hover {
+    color: var(--color-primary);
+}
+
+.hours {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-xs);
+}
+
+.footerNav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.footerNav a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: all var(--transition-fast);
+    padding: var(--spacing-xs) 0;
+}
+
+.footerNav a:hover {
+    color: var(--color-primary);
+    padding-left: var(--spacing-xs);
+}
+
+.footerBottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.websiteLink {
+    margin-top: var(--spacing-xs);
+}
+
+.websiteLink a {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.websiteLink a:hover {
+    color: var(--color-primary-light);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--spacing-2xl) 0 var(--spacing-md);
+    }
+
+    .footerContent {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .footerSection {
+        text-align: center;
+    }
+
+    .footerNav {
+        align-items: center;
+    }
+
+    .footerNav a:hover {
+        padding-left: 0;
+    }
+}

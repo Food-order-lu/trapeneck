@@ -1,0 +1,353 @@
+.main {
+    min-height: 100vh;
+}
+
+.section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-light);
+}
+
+.sectionDark {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2028 100%);
+    color: var(--color-text-light);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.textCenter {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.sectionTitleLight {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.sectionSubtitle {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.sectionSubtitleLight {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* About Section */
+.aboutContent {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.aboutText p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.aboutText strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Services Section */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+/* Order Section */
+.orderSection {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+}
+
+.orderContent {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.orderTextBox h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.orderTextBox p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Specialties Section */
+.specialtiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.specialtyCard {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-medium);
+    cursor: pointer;
+}
+
+.specialtyCard:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-xl);
+}
+
+.specialtyImage {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.specialtyCard:hover .specialtyImage {
+    transform: scale(1.1);
+}
+
+.specialtyContent {
+    padding: var(--spacing-xl);
+}
+
+.specialtyContent h3 {
+    font-size: 1.75rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.specialtyContent p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+/* Contact Section */
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.contactInfo {
+    color: var(--color-white);
+}
+
+.contactText {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contactItem {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.contactIcon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.contactItem h4 {
+    font-size: 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contactItem a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color var(--transition-fast);
+    font-size: 1.05rem;
+}
+
+.contactItem a:hover {
+    color: var(--color-primary);
+}
+
+.contactItem p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.btnPrimary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.4);
+    display: inline-block;
+}
+
+.btnPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 107, 53, 0.6);
+}
+
+.btnOutline {
+    background: transparent;
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: 2px solid var(--color-white);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-medium);
+    display: inline-block;
+}
+
+.btnOutline:hover {
+    background: var(--color-white);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+/* Hours Card */
+.hoursCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+}
+
+.hoursCard h3 {
+    font-size: 2rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.hoursList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.hourItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hourItem:last-child {
+    border-bottom: none;
+}
+
+.day {
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+.time {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .section,
+    .sectionDark {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .specialtiesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btnPrimary,
+    .btnOutline {
+        width: 100%;
+        text-align: center;
+    }
+}
