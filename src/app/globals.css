@@ -22,7 +22,7 @@
 
   --color-white: #FFFFFF;
   --color-cream: #FFF8F0;
-  
+
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #5A5A5A;
   --color-text-light: #FFFFFF;
@@ -175,7 +175,7 @@ img {
   z-index: 1;
 }
 
-.gradient-overlay > * {
+.gradient-overlay>* {
   position: relative;
   z-index: 2;
 }
@@ -396,7 +396,7 @@ a.glf-button,
   display: inline-block !important;
   cursor: pointer !important;
   box-sizing: border-box !important;
-  
+
   /* Reset GloriaFood specific overrides */
   background-image: none !important;
   line-height: normal !important;
@@ -431,7 +431,9 @@ a.glf-button,
 /* Remove any GloriaFood added elements */
 .glf-button::after,
 .glf-button::before,
-.glf-button > *:not(:first-child) {
+.glf-button>*:not(:first-child) {
   display: none !important;
   content: none !important;
 }
+
+/* Force rebuild for CSS cache busting */
