@@ -5,6 +5,10 @@
     right: 0;
     z-index: 1000;
     padding: var(--spacing-md) 0;
+    background: rgba(15, 20, 25, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-medium);
 }
 
