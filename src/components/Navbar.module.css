@@ -33,8 +33,14 @@
 .logo {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
-    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.logoImage {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
 }
 
 .logo:hover {

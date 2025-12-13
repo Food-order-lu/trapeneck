@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -35,17 +36,17 @@ export default function Navbar() {
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
                     <span className={styles.logoText}>AM TRAPENECK</span>
-                    <span className={styles.logoSubtext}>Restaurant Italien</span>
+                    <span className={styles.logoSubtext}>Brasserie-Pizzeria</span>
                 </Link>
 
                 <div className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
-                    <Link href="/" className={styles.navLink}>
+                    <Link href="/" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
                         Accueil
                     </Link>
-                    <Link href="/menu" className={styles.navLink}>
+                    <Link href="/menu" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
                         Menu
                     </Link>
-                    <Link href="/contact" className={styles.navLink}>
+                    <Link href="/contact" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
                         Contact
                     </Link>
                 </div>

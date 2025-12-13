@@ -119,7 +119,7 @@ export default function Home() {
                     <div className={styles.specialtiesGrid}>
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80)'
+                                backgroundImage: 'url(/trapeneck/images/img10.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3>Pizzas Artisanales</h3>
@@ -132,7 +132,7 @@ export default function Home() {
 
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80)'
+                                backgroundImage: 'url(/trapeneck/images/img16.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3>Pâtes Fraîches</h3>
@@ -145,7 +145,7 @@ export default function Home() {
 
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80)'
+                                backgroundImage: 'url(/trapeneck/images/img19.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3>Cuisine Italienne</h3>
