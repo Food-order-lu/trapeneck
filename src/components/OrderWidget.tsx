@@ -1,14 +1,14 @@
 'use client';
 
-interface GloriaFoodWidgetProps {
+interface OrderWidgetProps {
     showOrderButton?: boolean;
     showReservationButton?: boolean;
 }
 
-export default function GloriaFoodWidget({
+export default function OrderWidget({
     showOrderButton = true,
     showReservationButton = true
-}: GloriaFoodWidgetProps) {
+}: OrderWidgetProps) {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             {showOrderButton && (

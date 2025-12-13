@@ -3,12 +3,12 @@
 import { useEffect } from 'react';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
-import GloriaFoodWidget from '@/components/GloriaFoodWidget';
+import OrderWidget from '@/components/OrderWidget';
 import styles from './page.module.css';
 
 export default function Home() {
     useEffect(() => {
-        // Charger le script GloriaFood
+        // Charger le script de commande
         const script = document.createElement('script');
         script.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js';
         script.defer = true;
@@ -87,18 +87,18 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Commander en Ligne Section - GloriaFood */}
+            {/* Commander en Ligne Section */}
             <section className={styles.orderSection}>
                 <div className={styles.container}>
                     <div className={styles.orderContent}>
                         <div className={styles.orderTextBox}>
                             <h2>Commander en Ligne</h2>
                             <p>
-                                Commandez directement en ligne via GloriaFood pour la livraison à domicile ou le retrait au restaurant.
+                                Commandez directement en ligne pour la livraison à domicile ou le retrait au restaurant.
                                 Menu complet disponible !
                             </p>
                         </div>
-                        <GloriaFoodWidget
+                        <OrderWidget
                             showOrderButton={true}
                             showReservationButton={true}
                         />

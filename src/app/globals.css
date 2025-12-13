@@ -385,19 +385,19 @@ img {
   }
 }
 
-/* Override GloriaFood default styles - Force our custom button styles */
+/* Override ordering widget default styles - Force our custom button styles */
 .glf-button,
 a.glf-button,
 .glf-button:link,
 .glf-button:visited {
-  /* Force our styles to take precedence over GloriaFood */
+  /* Force our styles to take precedence over widget */
   font-family: var(--font-body) !important;
   text-decoration: none !important;
   display: inline-block !important;
   cursor: pointer !important;
   box-sizing: border-box !important;
 
-  /* Reset GloriaFood specific overrides */
+  /* Reset widget specific overrides */
   background-image: none !important;
   line-height: normal !important;
   white-space: nowrap !important;
@@ -428,7 +428,7 @@ a.glf-button,
   padding: var(--spacing-sm) var(--spacing-lg) !important;
 }
 
-/* Remove any GloriaFood added elements */
+/* Remove any widget added elements */
 .glf-button::after,
 .glf-button::before,
 .glf-button>*:not(:first-child) {

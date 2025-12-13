@@ -16,7 +16,7 @@ export default function Navbar() {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Charger le script GloriaFood
+        // Charger le script de commande
         const script = document.createElement('script');
         script.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js';
         script.defer = true;

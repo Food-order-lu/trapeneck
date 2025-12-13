@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import GloriaFoodWidget from '@/components/GloriaFoodWidget';
+import OrderWidget from '@/components/OrderWidget';
 import styles from './page.module.css';
 
 export default function MenuPage() {
     useEffect(() => {
-        // Charger le script GloriaFood
+        // Charger le script de commande
         const script = document.createElement('script');
         script.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js';
         script.defer = true;
@@ -40,7 +40,7 @@ export default function MenuPage() {
                     </div>
 
                     <div className={styles.widgetContainer}>
-                        <GloriaFoodWidget
+                        <OrderWidget
                             showOrderButton={true}
                             showReservationButton={true}
                         />
@@ -50,7 +50,7 @@ export default function MenuPage() {
                         <p>
                             <strong>Note:</strong> Pour consulter notre menu complet avec les prix
                             et passer commande, cliquez sur "Commander en Ligne" ci-dessus.
-                            Le widget GloriaFood s'ouvrira avec toutes nos spécialités.
+                            Le widget de commande s'ouvrira avec toutes nos spécialités.
                         </p>
                     </div>
 
