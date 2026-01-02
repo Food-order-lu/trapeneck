@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Hero from '@/components/Hero';
+import MenuSection from '@/components/MenuSection';
 import ServiceCard from '@/components/ServiceCard';
 import OrderWidget from '@/components/OrderWidget';
 import styles from './page.module.css';
@@ -25,6 +26,9 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <Hero />
+
+            {/* Menu du Jour Section */}
+            <MenuSection />
 
             {/* About Section */}
             <section className={styles.section} id="about">

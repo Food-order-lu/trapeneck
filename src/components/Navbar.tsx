@@ -46,6 +46,9 @@ export default function Navbar() {
                     <Link href="/menu" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
                         Menu
                     </Link>
+                    <Link href="/galerie" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
+                        Galerie
+                    </Link>
                     <Link href="/contact" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>
                         Contact
                     </Link>
