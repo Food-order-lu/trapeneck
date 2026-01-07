@@ -8,7 +8,7 @@ import styles from './page.module.css';
 // Configuration Cloudinary
 const CLOUD_NAME = 'dsk1mj71x';
 const UPLOAD_PRESET = 'Menu de la semaine pepperoni'; // Reusing preset as per plan
-const ADMIN_PASSWORD = 'Pepperoni2022';
+const ADMIN_PASSWORD = 'Trapeneck5886**';
 
 export default function AdminPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
