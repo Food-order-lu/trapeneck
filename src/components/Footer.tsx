@@ -18,7 +18,6 @@ export default function Footer() {
                         <h4 className={styles.sectionTitle}>Contact</h4>
                         <div className={styles.contactInfo}>
                             <p>📞 <a href="tel:+35226361133">26 36 11 33</a></p>
-                            <p>✉️ <a href="mailto:info@am-trapeneck.lu">info@am-trapeneck.lu</a></p>
                             <p>📍 508 route de thionville<br />L-5886 Hesperange</p>
                         </div>
                     </div>
@@ -46,8 +45,8 @@ export default function Footer() {
                 <div className={styles.footerBottom}>
                     <p>&copy; {new Date().getFullYear()} Am Trapeneck. Tous droits réservés.</p>
                     <p className={styles.websiteLink}>
-                        Site web: <a href="https://www.am-trapeneck.lu" target="_blank" rel="noopener noreferrer">
-                            www.am-trapeneck.lu
+                        Site web: <a href="https://www.trapeneck.lu" target="_blank" rel="noopener noreferrer">
+                            www.trapeneck.lu
                         </a>
                     </p>
                 </div>

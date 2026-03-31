@@ -183,16 +183,6 @@ export default function Home() {
                                 </div>
 
                                 <div className={styles.contactItem}>
-                                    <div className={styles.contactIcon}>✉️</div>
-                                    <div>
-                                        <h4>Email</h4>
-                                        <a href="mailto:info@am-trapeneck.lu">
-                                            info@am-trapeneck.lu
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className={styles.contactItem}>
                                     <div className={styles.contactIcon}>📍</div>
                                     <div>
                                         <h4>Adresse</h4>
@@ -204,9 +194,6 @@ export default function Home() {
                             <div className={styles.cta}>
                                 <a href="tel:+35226361133" className={styles.btnPrimary}>
                                     Réserver une Table
-                                </a>
-                                <a href="/menu" className={styles.btnOutline}>
-                                    Voir le Menu
                                 </a>
                             </div>
                         </div>

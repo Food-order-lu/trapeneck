@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getMenuUrl } from '@/lib/firebase';
+import { getMenuUrl } from '@/lib/supabase';
 import styles from '../app/page.module.css';
 
 export default function MenuSection() {

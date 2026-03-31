@@ -27,14 +27,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className={styles.infoCard}>
-                                <div className={styles.infoIcon}>✉️</div>
-                                <div className={styles.infoContent}>
-                                    <h3>Email</h3>
-                                    <a href="mailto:info@am-trapeneck.lu">info@am-trapeneck.lu</a>
-                                    <p>Nous vous répondrons dans les plus brefs délais</p>
-                                </div>
-                            </div>
+
 
                             <div className={styles.infoCard}>
                                 <div className={styles.infoIcon}>📍</div>
@@ -113,7 +106,7 @@ export default function ContactPage() {
                         <h2>Comment Nous Trouver</h2>
                         <div className={styles.mapContainer}>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2587.934!2d6.154!3d49.572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDM0JzE5LjIiTiA2wrAwOScxNC40IkU!5e0!3m2!1sen!2s!4v1234567890!5m2!1sen!2s"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2591.246695287667!2d6.158580276634336!3d49.56804135313936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479548b1114a87c1%3A0x63391d4e0e56728a!2sAm%20Trapeneck!5e0!3m2!1sen!2slu!4v1711924261000!5m2!1sen!2slu"
                                 width="600"
                                 height="450"
                                 style={{ border: 0 }}

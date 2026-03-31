@@ -1,13 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { saveMenuUrl, getMenuUrl, addGalleryImage, getGalleryImages, deleteGalleryImage, GalleryImage } from '@/lib/firebase';
+import { saveMenuUrl, getMenuUrl, addGalleryImage, getGalleryImages, deleteGalleryImage, GalleryImage, uploadImage } from '@/lib/supabase';
 import { resizeImage, createLocalPreview } from '@/lib/image';
 import styles from './page.module.css';
 
-// Configuration Cloudinary
-const CLOUD_NAME = 'dsk1mj71x';
-const UPLOAD_PRESET = 'Menu de la semaine pepperoni'; // Reusing preset as per plan
 const ADMIN_PASSWORD = 'Trapeneck5886**';
 
 export default function AdminPage() {
@@ -37,7 +34,7 @@ export default function AdminPage() {
             setIsAuthenticated(true);
         }
 
-        // Charger l'URL de l'image depuis Firebase
+        // Charger l'URL de l'image depuis Supabase
         const loadMenu = async () => {
             const url = await getMenuUrl();
             if (url) {
@@ -102,49 +99,41 @@ export default function AdminPage() {
         setError('');
         setUploadProgress(0);
 
-        // 1. INSTANTANÉ: Afficher la prévisualisation locale immédiatement
+        // Preview local immediate
         const localUrl = createLocalPreview(file);
         setLocalPreviewUrl(localUrl);
         setIsUploading(true);
         setUploadProgress(10);
 
         try {
-            // 2. Compresser l'image
+            // Compress image
             setUploadProgress(20);
             const compressedBlob = await resizeImage(file);
+            const compressedFile = new File([compressedBlob], file.name, { type: file.type });
             setUploadProgress(40);
 
-            // 3. Upload vers Cloudinary
-            const formData = new FormData();
-            formData.append('file', compressedBlob);
-            formData.append('upload_preset', UPLOAD_PRESET);
-
-            const response = await fetch(
-                `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-                { method: 'POST', body: formData }
-            );
+            // Upload directly to Supabase Storage
+            const publicUrl = await uploadImage(compressedFile, 'menu');
             setUploadProgress(80);
 
-            const data = await response.json();
-
-            if (data.secure_url) {
-                // 4. Sauvegarder dans Firebase
-                const result = await saveMenuUrl(data.secure_url);
+            if (publicUrl) {
+                // Save in Database
+                const result = await saveMenuUrl(publicUrl);
                 setUploadProgress(95);
 
                 if (result.success) {
-                    setMenuImageUrl(data.secure_url);
-                    setLocalPreviewUrl(''); // Clear local preview
+                    setMenuImageUrl(publicUrl);
+                    setLocalPreviewUrl('');
                     setUploadSuccess(true);
                     setUploadProgress(100);
                 } else {
                     setError(`Erreur sauvegarde: ${result.error}`);
                 }
             } else {
-                setError('Erreur upload Cloudinary.');
+                setError('Erreur upload Supabase.');
             }
         } catch (err) {
-            setError('Erreur de connexion. Réessayez.');
+            setError('Erreur technique. Réessayez.');
             console.error(err);
         } finally {
             setIsUploading(false);
@@ -162,21 +151,14 @@ export default function AdminPage() {
         try {
             setUploadProgress(30);
             const compressedBlob = await resizeImage(file);
+            const compressedFile = new File([compressedBlob], file.name, { type: file.type });
 
-            const formData = new FormData();
-            formData.append('file', compressedBlob);
-            formData.append('upload_preset', UPLOAD_PRESET);
+            setUploadProgress(50);
+            const publicUrl = await uploadImage(compressedFile, 'gallery');
+            setUploadProgress(80);
 
-            const response = await fetch(
-                `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-                { method: 'POST', body: formData }
-            );
-
-            setUploadProgress(70);
-            const data = await response.json();
-
-            if (data.secure_url) {
-                const result = await addGalleryImage(data.secure_url, galleryCategory);
+            if (publicUrl) {
+                const result = await addGalleryImage(publicUrl, galleryCategory);
                 setUploadProgress(100);
 
                 if (result.success) {
@@ -187,6 +169,8 @@ export default function AdminPage() {
                 } else {
                     setError(`Erreur sauvegarde: ${result.error}`);
                 }
+            } else {
+                setError('Erreur upload Supabase.');
             }
         } catch (err) {
             setError('Erreur upload.');

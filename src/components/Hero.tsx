@@ -34,9 +34,6 @@ export default function Hero() {
                         >
                             Commander en Ligne
                         </a>
-                        <a href="/menu" className={styles.btnOutline}>
-                            Voir le Menu
-                        </a>
                     </div>
                 </motion.div>
             </div>
