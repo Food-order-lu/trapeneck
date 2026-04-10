@@ -108,8 +108,10 @@ export default function AdminPage() {
             const compressedFile = new File([compressedBlob], file.name, { type: file.type });
             setUploadProgress(40);
 
-            const publicUrl = await uploadImage(compressedFile, 'menu');
-            setUploadProgress(80);
+            const publicUrl = await uploadImage(compressedFile, 'menu', (p) => {
+                // On mappe le 0-100% de l'upload sur l'intervalle 40-90% de la barre UI
+                setUploadProgress(Math.round(40 + (p * 0.5)));
+            });
 
             if (publicUrl) {
                 const result = await saveMenuUrl(publicUrl);
@@ -148,8 +150,10 @@ export default function AdminPage() {
             const compressedFile = new File([compressedBlob], file.name, { type: file.type });
 
             setUploadProgress(50);
-            const publicUrl = await uploadImage(compressedFile, 'gallery');
-            setUploadProgress(80);
+            const publicUrl = await uploadImage(compressedFile, 'gallery', (p) => {
+                // On mappe le 0-100% de l'upload sur l'intervalle 50-95% de la barre UI
+                setUploadProgress(Math.round(50 + (p * 0.45)));
+            });
 
             if (publicUrl) {
                 const result = await addGalleryImage(publicUrl, galleryCategory);

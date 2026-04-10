@@ -136,18 +136,41 @@ export async function deleteGalleryImage(id: string, imageUrl?: string): Promise
     }
 }
 
-// Fonction d'upload d'image vers Firebase Storage
-export async function uploadImage(file: File, folder: 'menu' | 'gallery'): Promise<string | null> {
-    try {
-        const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.]/g, '_')}`;
-        const storageRef = ref(storage, `${folder}/${fileName}`);
-        
-        await uploadBytesResumable(storageRef, file);
-        const downloadURL = await getDownloadURL(storageRef);
-        
-        return downloadURL;
-    } catch (error) {
-        console.error('Erreur upload Firebase Storage:', error);
-        return null;
-    }
+// Fonction d'upload d'image vers Firebase Storage avec suivi de progression
+export async function uploadImage(
+    file: File, 
+    folder: 'menu' | 'gallery', 
+    onProgress?: (percent: number) => void
+): Promise<string | null> {
+    return new Promise((resolve, reject) => {
+        try {
+            const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.]/g, '_')}`;
+            const storageRef = ref(storage, `${folder}/${fileName}`);
+            
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on('state_changed', 
+                (snapshot) => {
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    if (onProgress) onProgress(progress);
+                }, 
+                (error) => {
+                    console.error('Erreur Upload Firebase Storage:', error);
+                    resolve(null); // On résout avec null pour gérer l'erreur gracieusement dans l'UI
+                }, 
+                async () => {
+                    try {
+                        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                        resolve(downloadURL);
+                    } catch (urlError) {
+                        console.error('Erreur récupération URL:', urlError);
+                        resolve(null);
+                    }
+                }
+            );
+        } catch (error) {
+            console.error('Erreur technique Upload:', error);
+            resolve(null);
+        }
+    });
 }
