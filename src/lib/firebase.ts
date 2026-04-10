@@ -1,18 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc, getDoc, collection, query, orderBy, getDocs, deleteDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBEb-VBRW3ymcVl9oLjOAxAuk1L2jNC7jU",
-    authDomain: "pepperoni-651c6.firebaseapp.com",
-    projectId: "pepperoni-651c6",
-    storageBucket: "pepperoni-651c6.firebasestorage.app",
-    messagingSenderId: "1068626836984",
-    appId: "1:1068626836984:web:52e0abbd1829f999426a0d",
-    measurementId: "G-9RDWZNMVN3"
+    apiKey: "AIzaSyDjlzF-P8WlBtXNKtqla-mZfEaaJEUtqgQ",
+    authDomain: "am-trapeneck-8844.firebaseapp.com",
+    projectId: "am-trapeneck-8844",
+    storageBucket: "am-trapeneck-8844.firebasestorage.app",
+    messagingSenderId: "705979337257",
+    appId: "1:705979337257:web:1814be4ec3a42d483c6a38"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // UNIQUE STORAGE KEYS FOR TRAPENECK TO AVOID CONFLICTS
 const STORAGE_KEY = 'trapeneck_menu_url';
@@ -111,13 +112,42 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
     }
 }
 
-// Supprimer une image de la galerie - UTILISATION DE LA COLLECTION 'trapeneck_gallery'
-export async function deleteGalleryImage(id: string): Promise<{ success: boolean; error?: string }> {
+// Supprimer une image de la galerie
+export async function deleteGalleryImage(id: string, imageUrl?: string): Promise<{ success: boolean; error?: string }> {
     try {
+        // Supprimer du Firestore
         await deleteDoc(doc(db, 'trapeneck_gallery', id));
+
+        // Supprimer du Storage si l'URL est fournie et appartient à notre bucket
+        if (imageUrl && imageUrl.includes('firebasestorage.googleapis.com')) {
+            try {
+                const storageRef = ref(storage, imageUrl);
+                await deleteObject(storageRef);
+            } catch (storageError) {
+                console.warn('Erreur suppression Storage:', storageError);
+                // On continue car le document Firestore est déjà supprimé
+            }
+        }
+
         return { success: true };
     } catch (error: any) {
         console.error('Erreur suppression galerie:', error);
         return { success: false, error: error.message || 'Erreur inconnue' };
+    }
+}
+
+// Fonction d'upload d'image vers Firebase Storage
+export async function uploadImage(file: File, folder: 'menu' | 'gallery'): Promise<string | null> {
+    try {
+        const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.]/g, '_')}`;
+        const storageRef = ref(storage, `${folder}/${fileName}`);
+        
+        await uploadBytesResumable(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        
+        return downloadURL;
+    } catch (error) {
+        console.error('Erreur upload Firebase Storage:', error);
+        return null;
     }
 }

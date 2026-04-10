@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { saveMenuUrl, getMenuUrl, addGalleryImage, getGalleryImages, deleteGalleryImage, GalleryImage, uploadImage } from '@/lib/supabase';
+import { saveMenuUrl, getMenuUrl, addGalleryImage, getGalleryImages, deleteGalleryImage, GalleryImage, uploadImage } from '@/lib/firebase';
 import { resizeImage, createLocalPreview } from '@/lib/image';
 import styles from './page.module.css';
 
@@ -34,22 +34,21 @@ export default function AdminPage() {
             setIsAuthenticated(true);
         }
 
-        // Charger l'URL de l'image depuis Supabase
-        const loadMenu = async () => {
-            const url = await getMenuUrl();
-            if (url) {
-                setMenuImageUrl(url);
+        const loadContent = async () => {
+            try {
+                const url = await getMenuUrl();
+                if (url) setMenuImageUrl(url);
+
+                const images = await getGalleryImages();
+                setGalleryImages(images);
+            } catch (err) {
+                console.error('Erreur chargement:', err);
+            } finally {
+                setIsLoading(false);
             }
-            setIsLoading(false);
         };
 
-        const loadGallery = async () => {
-            const images = await getGalleryImages();
-            setGalleryImages(images);
-        };
-
-        loadMenu();
-        loadGallery();
+        loadContent();
     }, []);
 
     // Protection contre la fermeture accidentelle pendant l'upload
@@ -94,30 +93,25 @@ export default function AdminPage() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        // Reset states
         setUploadSuccess(false);
         setError('');
         setUploadProgress(0);
 
-        // Preview local immediate
         const localUrl = createLocalPreview(file);
         setLocalPreviewUrl(localUrl);
         setIsUploading(true);
         setUploadProgress(10);
 
         try {
-            // Compress image
             setUploadProgress(20);
             const compressedBlob = await resizeImage(file);
             const compressedFile = new File([compressedBlob], file.name, { type: file.type });
             setUploadProgress(40);
 
-            // Upload directly to Supabase Storage
             const publicUrl = await uploadImage(compressedFile, 'menu');
             setUploadProgress(80);
 
             if (publicUrl) {
-                // Save in Database
                 const result = await saveMenuUrl(publicUrl);
                 setUploadProgress(95);
 
@@ -130,7 +124,7 @@ export default function AdminPage() {
                     setError(`Erreur sauvegarde: ${result.error}`);
                 }
             } else {
-                setError('Erreur upload Supabase.');
+                setError('Erreur upload Firebase Storage.');
             }
         } catch (err) {
             setError('Erreur technique. Réessayez.');
@@ -170,7 +164,7 @@ export default function AdminPage() {
                     setError(`Erreur sauvegarde: ${result.error}`);
                 }
             } else {
-                setError('Erreur upload Supabase.');
+                setError('Erreur upload Firebase Storage.');
             }
         } catch (err) {
             setError('Erreur upload.');
@@ -181,9 +175,9 @@ export default function AdminPage() {
         }
     };
 
-    const handleDeleteGalleryImage = async (id: string) => {
+    const handleDeleteGalleryImage = async (id: string, url: string) => {
         if (confirm('Voulez-vous vraiment supprimer cette image ?')) {
-            const result = await deleteGalleryImage(id);
+            const result = await deleteGalleryImage(id, url);
             if (result.success) {
                 const images = await getGalleryImages();
                 setGalleryImages(images);
@@ -233,7 +227,7 @@ export default function AdminPage() {
                             padding: '0.75rem 1.5rem',
                             borderRadius: '2rem',
                             border: 'none',
-                            background: activeTab === 'menu' ? '#E31837' : '#f0f0f0', // Trapeneck color might be different, using generic red for now
+                            background: activeTab === 'menu' ? '#E31837' : '#f0f0f0',
                             color: activeTab === 'menu' ? 'white' : '#333',
                             fontWeight: 'bold',
                             cursor: 'pointer'
@@ -364,7 +358,7 @@ export default function AdminPage() {
                                                 {img.category === 'restaurant' ? '🍽️' : '🎉'}
                                             </span>
                                             <button
-                                                onClick={() => handleDeleteGalleryImage(img.id)}
+                                                onClick={() => handleDeleteGalleryImage(img.id, img.url)}
                                                 style={{
                                                     background: '#fee2e2',
                                                     color: '#dc2626',

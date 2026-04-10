@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getGalleryImages, GalleryImage } from '@/lib/supabase';
+import { getGalleryImages, GalleryImage } from '@/lib/firebase';
 import styles from './page.module.css';
 
 export default function GalleryPage() {
