@@ -29,8 +29,8 @@ export default function Hero() {
                         <a
                             href="#order"
                             className={`glf-button ${styles.btnPrimary}`}
-                            data-glf-cuid="YOUR_CUID_HERE"
-                            data-glf-ruid="YOUR_RUID_HERE"
+                            data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                            data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                         >
                             Commander en Ligne
                         </a>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,12 @@ export default function RootLayout({
                 <Navbar />
                 {children}
                 <Footer />
+                <Script
+                    src="https://www.fbgcdn.com/embedder/js/ewm2.js"
+                    strategy="afterInteractive"
+                    defer
+                    async
+                />
             </body>
         </html>
     );

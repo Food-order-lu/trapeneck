@@ -15,8 +15,8 @@ export default function OrderWidget({
                 <a
                     href="#order"
                     className="glf-button btn-primary"
-                    data-glf-cuid="YOUR_CUID_HERE"
-                    data-glf-ruid="YOUR_RUID_HERE"
+                    data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                    data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                 >
                     Commander en Ligne
                 </a>
@@ -25,8 +25,8 @@ export default function OrderWidget({
                 <a
                     href="#reservation"
                     className="glf-button reservation btn-secondary"
-                    data-glf-cuid="YOUR_CUID_HERE"
-                    data-glf-ruid="YOUR_RUID_HERE"
+                    data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                    data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                     data-glf-reservation="true"
                 >
                     Réserver une Table

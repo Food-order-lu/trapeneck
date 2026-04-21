@@ -16,18 +16,8 @@ export default function Navbar() {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Charger le script de commande
-        const script = document.createElement('script');
-        script.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js';
-        script.defer = true;
-        script.async = true;
-        document.body.appendChild(script);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            if (script.parentNode) {
-                script.parentNode.removeChild(script);
-            }
         };
     }, []);
 
@@ -58,8 +48,8 @@ export default function Navbar() {
                     <a
                         href="#reservation"
                         className={`glf-button reservation ${styles.btnSecondary}`}
-                        data-glf-cuid="YOUR_CUID_HERE"
-                        data-glf-ruid="YOUR_RUID_HERE"
+                        data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                        data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                         data-glf-reservation="true"
                     >
                         Réserver
@@ -67,8 +57,8 @@ export default function Navbar() {
                     <a
                         href="#order"
                         className={`glf-button ${styles.btnPrimary}`}
-                        data-glf-cuid="YOUR_CUID_HERE"
-                        data-glf-ruid="YOUR_RUID_HERE"
+                        data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                        data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                     >
                         Commander
                     </a>
