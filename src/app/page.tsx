@@ -8,21 +8,6 @@ import OrderWidget from '@/components/OrderWidget';
 import styles from './page.module.css';
 
 export default function Home() {
-    useEffect(() => {
-        // Charger le script de commande
-        const script = document.createElement('script');
-        script.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js';
-        script.defer = true;
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            if (script.parentNode) {
-                script.parentNode.removeChild(script);
-            }
-        };
-    }, []);
-
     return (
         <main className={styles.main}>
             <Hero />

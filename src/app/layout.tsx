@@ -29,8 +29,6 @@ export default function RootLayout({
                 <Script
                     src="https://www.fbgcdn.com/embedder/js/ewm2.js"
                     strategy="afterInteractive"
-                    defer
-                    async
                 />
             </body>
         </html>

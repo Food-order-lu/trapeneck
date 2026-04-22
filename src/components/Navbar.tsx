@@ -45,23 +45,23 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.ctaButtons}>
-                    <a
-                        href="#reservation"
+                    <span
                         className={`glf-button reservation ${styles.btnSecondary}`}
                         data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                         data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
                         data-glf-reservation="true"
+                        style={{ cursor: 'pointer' }}
                     >
                         Réserver
-                    </a>
-                    <a
-                        href="#order"
+                    </span>
+                    <span
                         className={`glf-button ${styles.btnPrimary}`}
                         data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                         data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
+                        style={{ cursor: 'pointer' }}
                     >
                         Commander
-                    </a>
+                    </span>
                 </div>
 
                 <button

@@ -26,14 +26,14 @@ export default function Hero() {
                         Découvrez une cuisine italienne authentique dans une ambiance chaleureuse et conviviale
                     </p>
                     <div className={styles.heroCTA}>
-                        <a
-                            href="#order"
+                        <span
                             className={`glf-button ${styles.btnPrimary}`}
                             data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                             data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
+                            style={{ cursor: 'pointer' }}
                         >
                             Commander en Ligne
-                        </a>
+                        </span>
                     </div>
                 </motion.div>
             </div>
