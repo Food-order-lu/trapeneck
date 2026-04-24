@@ -26,7 +26,8 @@ export default function Footer() {
                         <h4 className={styles.sectionTitle}>Horaires</h4>
                         <div className={styles.hoursGroup}>
                             <p className={styles.hoursTitle}>Brasserie</p>
-                            <p className={styles.hours}>10h00 - 22h00</p>
+                            <p className={styles.hours}>Lun - Sam: 10h00 - 22h00</p>
+                            <p className={styles.hours} style={{ color: '#ff6b35' }}>Dimanche: Fermé</p>
                         </div>
                         <div className={styles.hoursGroup} style={{ marginTop: '10px' }}>
                             <p className={styles.hoursTitle}>Cuisine</p>

@@ -190,8 +190,12 @@ export default function Home() {
                                     <h4 className={styles.hoursSubTitle}>Brasserie</h4>
                                     <div className={styles.hoursList}>
                                         <div className={styles.hourItem}>
-                                            <span className={styles.day}>Tous les jours</span>
+                                            <span className={styles.day}>Lundi - Samedi</span>
                                             <span className={styles.time}>10h00 - 22h00</span>
+                                        </div>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Dimanche</span>
+                                            <span className={styles.time} style={{ color: '#ff6b35', fontWeight: 'bold' }}>Fermé</span>
                                         </div>
                                     </div>
                                 </div>

@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Am Trapeneck - Restaurant Italien | Hesperange, Luxembourg",
-    description: "Restaurant italien et brasserie à Hesperange. Cuisine italienne authentique, pizzas, pâtes et livraison à domicile. Ouvert tous les jours de 10h00 à 14h et 18h à 22h (Brasserie dès 10h00).",
+    description: "Restaurant italien et brasserie à Hesperange. Cuisine authentique 7j/7 (10h-14h, 18h-22h). Brasserie ouverte du lundi au samedi dès 10h00.",
     keywords: "restaurant italien, Hesperange, Luxembourg, pizza, pâtes, livraison, brasserie, Am Trapeneck, Alzingen",
     openGraph: {
         title: "Am Trapeneck - Restaurant Italien",
