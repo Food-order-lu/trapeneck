@@ -278,12 +278,29 @@
 }
 
 .hoursCard h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.hoursGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.hoursSubTitle {
+    font-size: 1.25rem;
     font-family: var(--font-display);
     font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-lg);
-    text-align: center;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 4px;
+    display: inline-block;
 }
 
 .hoursList {
@@ -338,6 +355,11 @@
 
     .contactGrid {
         grid-template-columns: 1fr;
+    }
+
+    .hoursGrid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 
     .cta {

@@ -24,9 +24,15 @@ export default function Footer() {
 
                     <div className={styles.footerSection}>
                         <h4 className={styles.sectionTitle}>Horaires</h4>
-                        <p className={styles.hours}>Tous les jours</p>
-                        <p className={styles.hours}>11h30 - 14h00</p>
-                        <p className={styles.hours}>18h00 - 22h00</p>
+                        <div className={styles.hoursGroup}>
+                            <p className={styles.hoursTitle}>Brasserie</p>
+                            <p className={styles.hours}>10h00 - 22h00</p>
+                        </div>
+                        <div className={styles.hoursGroup} style={{ marginTop: '10px' }}>
+                            <p className={styles.hoursTitle}>Cuisine</p>
+                            <p className={styles.hours}>10h00 - 14h00</p>
+                            <p className={styles.hours}>18h00 - 22h00</p>
+                        </div>
                     </div>
 
                     <div className={styles.footerSection}>

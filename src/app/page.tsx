@@ -184,35 +184,29 @@ export default function Home() {
                         </div>
 
                         <div className={styles.hoursCard}>
-                            <h3>Horaires d'Ouverture</h3>
-                            <div className={styles.hoursList}>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Lundi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
+                            <h3>Horaires d&apos;Ouverture</h3>
+                            <div className={styles.hoursGrid}>
+                                <div className={styles.hoursSection}>
+                                    <h4 className={styles.hoursSubTitle}>Brasserie</h4>
+                                    <div className={styles.hoursList}>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Tous les jours</span>
+                                            <span className={styles.time}>10h00 - 22h00</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Mardi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
-                                </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Mercredi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
-                                </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Jeudi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
-                                </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Vendredi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
-                                </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Samedi</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
-                                </div>
-                                <div className={styles.hourItem}>
-                                    <span className={styles.day}>Dimanche</span>
-                                    <span className={styles.time}>11h30 - 14h00, 18h00 - 22h00</span>
+                                <div className={styles.hoursSection}>
+                                    <h4 className={styles.hoursSubTitle}>Cuisine</h4>
+                                    <div className={styles.hoursList}>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Déjeuner</span>
+                                            <span className={styles.time}>10h00 - 14h00</span>
+                                        </div>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Dîner</span>
+                                            <span className={styles.time}>18h00 - 22h00</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
