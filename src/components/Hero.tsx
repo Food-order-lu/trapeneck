@@ -35,6 +35,16 @@ export default function Hero() {
                         >
                             Réserver une Table
                         </span>
+                        <div className={styles.mobileOnly}>
+                            <span
+                                className={`glf-button ${styles.btnOutline}`}
+                                data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                                data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                Commander en Ligne
+                            </span>
+                        </div>
                     </div>
                 </motion.div>
             </div>

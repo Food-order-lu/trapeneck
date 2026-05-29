@@ -125,8 +125,22 @@
     transform: translateY(-4px);
 }
 
+/* Wrap a button in this to show it only on phone screens.
+   Applied to a plain <div> wrapper so GloriaFood's runtime styles on the
+   inner .glf-button don't interfere. */
+.mobileOnly {
+    display: none;
+    width: 100%;
+    justify-content: center;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
+
+    .mobileOnly {
+        display: flex;
+    }
+
     .hero {
         min-height: 80vh;
         padding-top: 60px;
