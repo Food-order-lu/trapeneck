@@ -119,10 +119,14 @@
     transition: all var(--transition-medium);
 }
 
+/* Subtle hover: a translucent white tint + lift. Avoids the white-on-white
+   trap that happens when GloriaFood injects an inner element whose own
+   white color won't switch to orange even if we change the parent's color. */
 .btnOutline:hover {
-    background: var(--color-white);
-    color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: var(--color-white);
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
 }
 
 /* Wrap a button in this to show it only on phone screens.
