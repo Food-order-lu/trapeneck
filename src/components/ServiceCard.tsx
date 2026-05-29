@@ -9,9 +9,11 @@ interface ServiceCardProps {
     href?: string;
     /** When true, clicking the card opens the GloriaFood reservation pop-up. */
     reservation?: boolean;
+    /** When true, clicking the card opens the GloriaFood ordering pop-up. */
+    order?: boolean;
 }
 
-export default function ServiceCard({ icon, title, description, href, reservation }: ServiceCardProps) {
+export default function ServiceCard({ icon, title, description, href, reservation, order }: ServiceCardProps) {
     const content = (
         <>
             <div className={styles.icon}>{icon}</div>
@@ -28,19 +30,20 @@ export default function ServiceCard({ icon, title, description, href, reservatio
         );
     }
 
-    if (reservation) {
+    if (reservation || order) {
         // The card stays a styled block; an invisible, full-size glf-button
-        // overlay captures the click so the GloriaFood reservation pop-up opens
-        // without the global .glf-button styles affecting the card layout.
+        // overlay captures the click so the GloriaFood pop-up (reservation or
+        // ordering, depending on the mode) opens without the global .glf-button
+        // styles affecting the card layout.
         return (
             <div className={styles.card} style={{ position: 'relative' }}>
                 {content}
                 <span
-                    className="glf-button reservation"
+                    className={reservation ? 'glf-button reservation' : 'glf-button'}
                     data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                     data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
-                    data-glf-reservation="true"
-                    aria-label={`${title} — Réserver une table`}
+                    data-glf-reservation={reservation ? 'true' : undefined}
+                    aria-label={`${title} — ${reservation ? 'Réserver une table' : 'Commander en ligne'}`}
                     style={{
                         position: 'absolute',
                         inset: 0,

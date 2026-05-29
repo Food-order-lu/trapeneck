@@ -89,13 +89,13 @@ export default function Home() {
                             icon="📦"
                             title="À Emporter"
                             description="Commandez vos plats préférés et venez les chercher à votre convenance"
-                            href="/menu"
+                            order
                         />
                         <ServiceCard
                             icon="🚗"
                             title="Livraison"
                             description="Profitez de notre service de livraison rapide et fiable à domicile"
-                            href="/menu"
+                            order
                         />
                     </div>
                 </div>
