@@ -59,35 +59,31 @@ export default function ContactPage() {
 
                         <div className={styles.hoursSection}>
                             <div className={styles.hoursCard}>
-                                <h2>Horaires d'Ouverture</h2>
-                                <div className={styles.hoursList}>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Lundi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
+                                <h2>Horaires d&apos;Ouverture</h2>
+                                <div className={styles.hoursGroup}>
+                                    <h3 className={styles.hoursSubTitle}>Brasserie</h3>
+                                    <div className={styles.hoursList}>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Lundi - Samedi</span>
+                                            <span className={styles.time}>10h00 - 22h00</span>
+                                        </div>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Dimanche</span>
+                                            <span className={styles.time} style={{ color: '#ff6b35', fontWeight: 'bold' }}>Fermé</span>
+                                        </div>
                                     </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Mardi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
-                                    </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Mercredi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
-                                    </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Jeudi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
-                                    </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Vendredi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
-                                    </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Samedi</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
-                                    </div>
-                                    <div className={styles.hourItem}>
-                                        <span className={styles.day}>Dimanche</span>
-                                        <span className={styles.time}>11h30 - 14h00<br />18h00 - 22h00</span>
+                                </div>
+                                <div className={styles.hoursGroup}>
+                                    <h3 className={styles.hoursSubTitle}>Cuisine</h3>
+                                    <div className={styles.hoursList}>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Déjeuner</span>
+                                            <span className={styles.time}>10h00 - 14h00</span>
+                                        </div>
+                                        <div className={styles.hourItem}>
+                                            <span className={styles.day}>Dîner</span>
+                                            <span className={styles.time}>18h00 - 22h00</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +102,7 @@ export default function ContactPage() {
                         <h2>Comment Nous Trouver</h2>
                         <div className={styles.mapContainer}>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2591.246695287667!2d6.158580276634336!3d49.56804135313936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479548b1114a87c1%3A0x63391d4e0e56728a!2sAm%20Trapeneck!5e0!3m2!1sen!2slu!4v1711924261000!5m2!1sen!2slu"
+                                src="https://maps.google.com/maps?q=Am%20Trapeneck%2C%20508%20Route%20de%20Thionville%2C%205886%20Hesperange%2C%20Luxembourg&t=&z=16&ie=UTF8&iwloc=&output=embed"
                                 width="600"
                                 height="450"
                                 style={{ border: 0 }}

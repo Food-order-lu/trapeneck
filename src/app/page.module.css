@@ -74,6 +74,18 @@
     font-weight: 700;
 }
 
+.specialtiesList {
+    list-style: none;
+    margin: 0 0 var(--spacing-md);
+    padding: 0;
+}
+
+.specialtiesList li {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.9;
+    color: var(--color-text-primary);
+}
+
 /* Services Section */
 .grid {
     display: grid;
@@ -153,6 +165,10 @@
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
+}
+
+.specialtyIcon {
+    margin-right: 0.4rem;
 }
 
 .specialtyContent p {

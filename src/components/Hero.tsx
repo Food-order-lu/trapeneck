@@ -27,12 +27,13 @@ export default function Hero() {
                     </p>
                     <div className={styles.heroCTA}>
                         <span
-                            className={`glf-button ${styles.btnPrimary}`}
+                            className={`glf-button reservation ${styles.btnPrimary}`}
                             data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                             data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
+                            data-glf-reservation="true"
                             style={{ cursor: 'pointer' }}
                         >
-                            Commander en Ligne
+                            Réserver une Table
                         </span>
                     </div>
                 </motion.div>

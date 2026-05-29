@@ -1,10 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
 import Hero from '@/components/Hero';
 import MenuSection from '@/components/MenuSection';
 import ServiceCard from '@/components/ServiceCard';
-import OrderWidget from '@/components/OrderWidget';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -28,18 +26,42 @@ export default function Home() {
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutText}>
                             <p>
-                                Bienvenue au <strong>Restaurant Am Trapeneck</strong>, situé à Hesperange, où nous vous
-                                accueillons dans une ambiance chaleureuse et conviviale tous les jours de la semaine.
+                                Nous sommes ravis de vous accueillir au <strong>Restaurant Am Trapeneck</strong>, niché
+                                au cœur d&apos;Hesperange. Ici, chaque jour de la semaine, nos portes s&apos;ouvrent pour
+                                vous offrir bien plus qu&apos;un simple repas : un véritable moment de partage, dans une
+                                atmosphère chaleureuse où vous vous sentirez immédiatement chez vous.
                             </p>
                             <p>
-                                Notre établissement propose une <strong>cuisine italienne authentique</strong>,
-                                préparée avec des ingrédients frais et de qualité. Pizzas artisanales, pâtes fraîches
-                                et spécialités italiennes vous attendent pour un déjeuner rapide, un dîner
-                                en famille ou entre amis.
+                                Chez Am Trapeneck, cuisiner avec passion et générosité est notre engagement de chaque
+                                instant. Nous mettons tout notre cœur à sélectionner des produits de qualité pour vous
+                                proposer des saveurs authentiques qui éveillent les papilles et réchauffent l&apos;âme.
                             </p>
                             <p>
-                                Nous sommes également une <strong>brasserie</strong> proposant une sélection de boissons
-                                et une atmosphère décontractée parfaite pour se détendre.
+                                Notre philosophie est aussi sincère que simple : vous régaler, à chaque visite, avec
+                                constance et amour du bon goût. C&apos;est pourquoi nous sommes fiers de vous proposer une
+                                belle carte autour de nos spécialités :
+                            </p>
+                            <ul className={styles.specialtiesList}>
+                                <li>🍕 <strong>Pizzas artisanales</strong>, dorées à souhait</li>
+                                <li>🍝 <strong>Pâtes fraîches</strong>, préparées avec soin</li>
+                                <li>🇮🇹 <strong>Spécialités italiennes</strong>, fidèles à la tradition</li>
+                                <li>🇱🇺 <strong>Spécialités luxembourgeoises</strong>, en hommage à notre belle région</li>
+                            </ul>
+                            <p>
+                                Laissez-vous tenter par nos plats généreux, accompagnés d&apos;une boisson
+                                rafraîchissante… et surtout, prenez le temps de souffler et de profiter ! Notre espace
+                                brasserie, à l&apos;atmosphère détendue et conviviale, est l&apos;endroit idéal pour une
+                                pause bien méritée, entre amis, en famille ou entre collègues.
+                            </p>
+                            <p>
+                                Votre fidélité est notre plus belle récompense, et nous vous en sommes profondément
+                                reconnaissants.
+                            </p>
+                            <p>
+                                Nous avons hâte de vous retrouver très bientôt autour d&apos;une belle table ! 🍽️
+                            </p>
+                            <p>
+                                <strong>À très vite au Restaurant Am Trapeneck !</strong>
                             </p>
                         </div>
                     </div>
@@ -61,35 +83,19 @@ export default function Home() {
                             icon="🍽️"
                             title="Sur Place"
                             description="Profitez d'une ambiance cosy et conviviale dans notre restaurant chaleureux"
+                            reservation
                         />
                         <ServiceCard
                             icon="📦"
                             title="À Emporter"
                             description="Commandez vos plats préférés et venez les chercher à votre convenance"
+                            href="/menu"
                         />
                         <ServiceCard
                             icon="🚗"
                             title="Livraison"
                             description="Profitez de notre service de livraison rapide et fiable à domicile"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Commander en Ligne Section */}
-            <section className={styles.orderSection}>
-                <div className={styles.container}>
-                    <div className={styles.orderContent}>
-                        <div className={styles.orderTextBox}>
-                            <h2>Commander en Ligne</h2>
-                            <p>
-                                Commandez directement en ligne pour la livraison à domicile ou le retrait au restaurant.
-                                Menu complet disponible !
-                            </p>
-                        </div>
-                        <OrderWidget
-                            showOrderButton={true}
-                            showReservationButton={true}
+                            href="/menu"
                         />
                     </div>
                 </div>
@@ -111,7 +117,7 @@ export default function Home() {
                                 backgroundImage: 'url(/trapeneck/images/img10.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
-                                <h3>Pizzas Artisanales</h3>
+                                <h3><span className={styles.specialtyIcon}>🍕</span> Pizzas Artisanales</h3>
                                 <p>
                                     Nos pizzas sont préparées avec des ingrédients frais et cuites au four traditionnel.
                                     Pâte fine et croustillante, garnitures généreuses.
@@ -124,7 +130,7 @@ export default function Home() {
                                 backgroundImage: 'url(/trapeneck/images/img16.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
-                                <h3>Pâtes Fraîches</h3>
+                                <h3><span className={styles.specialtyIcon}>🍝</span> Pâtes Fraîches</h3>
                                 <p>
                                     Découvrez nos pâtes fraîches préparées selon les traditions italiennes,
                                     accompagnées de sauces maison savoureuses.
@@ -137,7 +143,7 @@ export default function Home() {
                                 backgroundImage: 'url(/trapeneck/images/img19.jpg)'
                             }}></div>
                             <div className={styles.specialtyContent}>
-                                <h3>Cuisine Italienne</h3>
+                                <h3><span className={styles.specialtyIcon}>🇮🇹</span> Cuisine Italienne</h3>
                                 <p>
                                     Plats italiens authentiques, préparés avec passion et
                                     savoir-faire pour une expérience gastronomique unique.
