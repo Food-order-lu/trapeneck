@@ -81,7 +81,7 @@ export default function Home() {
                     <div className={styles.grid}>
                         <ServiceCard
                             icon="🍽️"
-                            title="Sur Place"
+                            title="Réserver une Table"
                             description="Profitez d'une ambiance cosy et conviviale dans notre restaurant chaleureux"
                             reservation
                         />
@@ -114,7 +114,7 @@ export default function Home() {
                     <div className={styles.specialtiesGrid}>
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(/trapeneck/images/img10.jpg)'
+                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img10.jpg)`
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🍕</span> Pizzas Artisanales</h3>
@@ -127,7 +127,7 @@ export default function Home() {
 
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(/trapeneck/images/img16.jpg)'
+                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img16.jpg)`
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🍝</span> Pâtes Fraîches</h3>
@@ -140,7 +140,7 @@ export default function Home() {
 
                         <div className={styles.specialtyCard}>
                             <div className={styles.specialtyImage} style={{
-                                backgroundImage: 'url(/trapeneck/images/img19.jpg)'
+                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img19.jpg)`
                             }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🇮🇹</span> Cuisine Italienne</h3>
@@ -183,9 +183,15 @@ export default function Home() {
                             </div>
 
                             <div className={styles.cta}>
-                                <a href="tel:+35226361133" className={styles.btnPrimary}>
+                                <span
+                                    className={`glf-button reservation ${styles.btnPrimary}`}
+                                    data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
+                                    data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
+                                    data-glf-reservation="true"
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     Réserver une Table
-                                </a>
+                                </span>
                             </div>
                         </div>
 

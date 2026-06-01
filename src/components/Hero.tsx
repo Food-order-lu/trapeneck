@@ -7,7 +7,10 @@ import styles from './Hero.module.css';
 export default function Hero() {
     return (
         <section className={styles.hero}>
-            <div className={styles.heroBackground}>
+            <div
+                className={styles.heroBackground}
+                style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/hero.jpg)` }}
+            >
                 <div className={styles.overlay}></div>
             </div>
             <div className={styles.heroContent}>
