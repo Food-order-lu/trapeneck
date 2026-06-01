@@ -1,15 +1,16 @@
 import Link from 'next/link';
+import { ORDER_URL } from '@/lib/order';
 import styles from './ServiceCard.module.css';
 
 interface ServiceCardProps {
     icon: string;
     title: string;
     description: string;
-    /** When set, the whole card navigates to this route (e.g. the menu page). */
+    /** When set, the whole card navigates to this internal route. */
     href?: string;
     /** When true, clicking the card opens the GloriaFood reservation pop-up. */
     reservation?: boolean;
-    /** When true, clicking the card opens the GloriaFood ordering pop-up. */
+    /** When true, the whole card links to the external online-ordering page. */
     order?: boolean;
 }
 
@@ -30,20 +31,32 @@ export default function ServiceCard({ icon, title, description, href, reservatio
         );
     }
 
-    if (reservation || order) {
+    if (order) {
+        return (
+            <a
+                href={ORDER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+            >
+                {content}
+            </a>
+        );
+    }
+
+    if (reservation) {
         // The card stays a styled block; an invisible, full-size glf-button
-        // overlay captures the click so the GloriaFood pop-up (reservation or
-        // ordering, depending on the mode) opens without the global .glf-button
-        // styles affecting the card layout.
+        // overlay captures the click so the GloriaFood reservation pop-up opens
+        // without the global .glf-button styles affecting the card layout.
         return (
             <div className={styles.card} style={{ position: 'relative' }}>
                 {content}
                 <span
-                    className={reservation ? 'glf-button reservation' : 'glf-button'}
+                    className="glf-button reservation"
                     data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
                     data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
-                    data-glf-reservation={reservation ? 'true' : undefined}
-                    aria-label={`${title} — ${reservation ? 'Réserver une table' : 'Commander en ligne'}`}
+                    data-glf-reservation="true"
+                    aria-label={`${title} — Réserver une table`}
                     style={{
                         position: 'absolute',
                         inset: 0,

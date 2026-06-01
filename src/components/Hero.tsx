@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ORDER_URL } from '@/lib/order';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -36,14 +37,14 @@ export default function Hero() {
                             Réserver une Table
                         </span>
                         <div className={styles.mobileOnly}>
-                            <span
-                                className={`glf-button ${styles.btnOutline}`}
-                                data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
-                                data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
-                                style={{ cursor: 'pointer' }}
+                            <a
+                                href={ORDER_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.btnOutline}
                             >
                                 Commander en Ligne
-                            </span>
+                            </a>
                         </div>
                     </div>
                 </motion.div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ORDER_URL } from '@/lib/order';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -54,14 +55,14 @@ export default function Navbar() {
                     >
                         Réserver
                     </span>
-                    <span
-                        className={`glf-button ${styles.btnPrimary}`}
-                        data-glf-cuid={process.env.NEXT_PUBLIC_GLORIAFOOD_CUID}
-                        data-glf-ruid={process.env.NEXT_PUBLIC_GLORIAFOOD_RUID}
-                        style={{ cursor: 'pointer' }}
+                    <a
+                        href={ORDER_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.btnPrimary}
                     >
                         Commander
-                    </span>
+                    </a>
                 </div>
 
                 <button
