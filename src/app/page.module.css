@@ -144,19 +144,9 @@
     box-shadow: var(--shadow-xl);
 }
 
-.specialtyImage {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    transition: transform var(--transition-slow);
-}
-
-.specialtyCard:hover .specialtyImage {
-    transform: scale(1.1);
-}
-
 .specialtyContent {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    text-align: center;
 }
 
 .specialtyContent h3 {
@@ -164,11 +154,14 @@
     font-family: var(--font-display);
     font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .specialtyIcon {
-    margin-right: 0.4rem;
+    display: block;
+    font-size: 3.5rem;
+    margin: 0 0 var(--spacing-sm);
+    line-height: 1;
 }
 
 .specialtyContent p {

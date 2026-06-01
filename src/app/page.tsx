@@ -113,9 +113,6 @@ export default function Home() {
 
                     <div className={styles.specialtiesGrid}>
                         <div className={styles.specialtyCard}>
-                            <div className={styles.specialtyImage} style={{
-                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img10.jpg)`
-                            }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🍕</span> Pizzas Artisanales</h3>
                                 <p>
@@ -126,9 +123,6 @@ export default function Home() {
                         </div>
 
                         <div className={styles.specialtyCard}>
-                            <div className={styles.specialtyImage} style={{
-                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img16.jpg)`
-                            }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🍝</span> Pâtes Fraîches</h3>
                                 <p>
@@ -139,9 +133,6 @@ export default function Home() {
                         </div>
 
                         <div className={styles.specialtyCard}>
-                            <div className={styles.specialtyImage} style={{
-                                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/img19.jpg)`
-                            }}></div>
                             <div className={styles.specialtyContent}>
                                 <h3><span className={styles.specialtyIcon}>🇮🇹</span> Cuisine Italienne</h3>
                                 <p>
