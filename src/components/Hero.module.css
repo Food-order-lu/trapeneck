@@ -107,9 +107,16 @@
     box-shadow: 0 12px 32px rgba(255, 107, 53, 0.6);
 }
 
+/* Now used by the mobile-only "Commander en Ligne" CTA, which is a plain
+   <a> link (not a GloriaFood widget any more). Solid white pill with orange
+   text gives strong contrast against the dark hero overlay and a clear
+   visual hierarchy alongside the orange primary "Réserver une Table"
+   button just above. */
 .btnOutline {
-    background: transparent;
-    color: var(--color-white);
+    display: inline-block;
+    text-decoration: none;
+    background: var(--color-white);
+    color: var(--color-primary);
     padding: var(--spacing-md) var(--spacing-xl);
     border: 3px solid var(--color-white);
     border-radius: var(--radius-md);
@@ -118,16 +125,14 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all var(--transition-medium);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
-/* Subtle hover: a translucent white tint + lift. Avoids the white-on-white
-   trap that happens when GloriaFood injects an inner element whose own
-   white color won't switch to orange even if we change the parent's color. */
 .btnOutline:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-primary-dark);
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
 }
 
 /* Wrap a button in this to show it only on phone screens.
