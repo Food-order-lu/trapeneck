@@ -1,8 +1,9 @@
 // Menu data for Am Trapeneck.
-// Source: Menu Trapeneck 24.03.2026.pdf (12 sections) + owner-supplied
-// pizzas & boissons. Allergen numbering follows the legend printed in the
-// PDF footer (1..14). Number 15 appears on a few items in the PDF but is
-// absent from the legend — kept as-is; owner to clarify.
+// Source: Menu - Trapeneck OG (10).pdf (June 2026 update) + owner-supplied
+// boissons (the PDF does not list drinks). Accents hand-restored from the
+// PDF extraction. Allergen numbering follows the legend printed in the PDF
+// footer (1..14). Number 15 appears on a few items in the PDF but is absent
+// from the legend — kept as-is; owner to clarify.
 
 export interface PriceVariant {
     label: string;
@@ -54,19 +55,19 @@ export const MENU: MenuCategory[] = [
         title: 'Nos Bruschettes',
         items: [
             {
-                name: 'Bruschettes Classic',
+                name: 'Bruschettes Classic 4PC',
                 description: "Pain grillé frotté à l'ail, tomates fraîches, origan et basilic",
                 price: '11,50 €',
                 allergens: [1],
             },
             {
-                name: 'Bruschettes Trapeneck',
+                name: 'Bruschettes Trapeneck 4PC',
                 description: 'Pain grillé garni de saucisse italienne et gorgonzola gratiné au four',
                 price: '16,50 €',
                 allergens: [1, 7],
             },
             {
-                name: 'Bruschettes Liguria',
+                name: 'Bruschettes Liguria 4PC',
                 description: 'Pain grillé au pesto, jambon de Parme, tomates et roquette',
                 price: '17,00 €',
                 allergens: [1, 8],
@@ -84,7 +85,7 @@ export const MENU: MenuCategory[] = [
             },
             {
                 name: 'Caprese di Bufala',
-                description: 'Mozzarella di bufala, tomates et basilic',
+                description: 'Mozzarella di bufala, tomate et basilic',
                 price: '16,00 €',
                 allergens: [7, 12, 15],
             },
@@ -96,12 +97,18 @@ export const MENU: MenuCategory[] = [
             },
             {
                 name: 'Antipasto Italiano',
-                description: 'Jambon cru, bruschette, arancini, fleur de courgette',
+                description: 'Jambon cru, bruschette, arancini, panzerottini',
                 pricing: [
                     { label: '1P', price: '21,90 €' },
                     { label: '2P', price: '37,90 €' },
                 ],
                 allergens: [3, 7, 10, 12],
+            },
+            {
+                name: 'Tartare de Bœuf',
+                description: 'Frites, salade',
+                price: '20,50 €',
+                allergens: [3, 10, 12],
             },
         ],
     },
@@ -109,7 +116,7 @@ export const MENU: MenuCategory[] = [
         title: 'Nos Salades',
         items: [
             {
-                name: 'Salade de Chèvre Chaud',
+                name: 'Salade de Chèvre Chaude',
                 description: 'Salade mixte, toasts de chèvre chaud nappés de miel',
                 price: '17,90 €',
                 allergens: [1, 2, 7, 10, 12],
@@ -144,7 +151,7 @@ export const MENU: MenuCategory[] = [
         title: 'Entrée Chaude',
         items: [
             {
-                name: 'Escargot de Bourgogne',
+                name: 'Escargots de Bourgogne',
                 description: 'Escargots cuisinés au beurre persillé',
                 pricing: [
                     { label: '6P', price: '11,50 €' },
@@ -153,7 +160,7 @@ export const MENU: MenuCategory[] = [
                 allergens: [7, 12],
             },
             {
-                name: 'Cuisse de Grenouille',
+                name: 'Cuisses de Grenouille',
                 description: 'Cuisses de grenouille persillées',
                 pricing: [
                     { label: '6P', price: '12,00 €' },
@@ -186,7 +193,7 @@ export const MENU: MenuCategory[] = [
         items: [
             {
                 name: 'Fiocchi Gorgonzola et Speck',
-                description: 'Pâtes farcies au gorgonzola, noix, roquette et speck',
+                description: 'Fiocchi farcies au gorgonzola, noix, roquette et speck',
                 price: '24,00 €',
                 allergens: [1, 7, 12],
             },
@@ -197,14 +204,14 @@ export const MENU: MenuCategory[] = [
                 allergens: [1, 3, 7, 12],
             },
             {
-                name: 'Ravioli Ricotta Sauce Aurora',
-                description: "Ravioli ricotta nappés d'une sauce tomate crème",
+                name: 'Ravioli Ricotta et Épinards Sauce Aurora',
+                description: "Ravioli ricotta et épinards nappés d'une sauce tomate crème",
                 price: '19,50 €',
                 allergens: [3, 7, 12],
             },
             {
                 name: 'Strozzapreti à la Saucisse Italienne',
-                description: 'Pâtes courtes à la saucisse italienne en sauce tomate',
+                description: 'Pâtes courtes à la saucisse italienne, parfumées au fenouil, en sauce tomate',
                 price: '19,50 €',
                 allergens: [1, 3, 12],
             },
@@ -215,9 +222,15 @@ export const MENU: MenuCategory[] = [
                 allergens: [1, 7, 12],
             },
             {
-                name: 'Orecchiette al Cime di Rape e Salsiccia',
-                description: 'Orecchiette aux brocolis-rave et saucisse italienne',
+                name: 'Orechiette al Cime di Rape e Salsiccia',
+                description: 'Orecchiette aux brocolis-rave et saucisse italienne, parfumées au fenouil',
                 price: '22,00 €',
+                allergens: [1, 3, 12],
+            },
+            {
+                name: 'Orechiette Barese',
+                description: 'Pâtes en sauce tomate et polpette maison',
+                price: '19,90 €',
                 allergens: [1, 3, 12],
             },
             {
@@ -246,13 +259,13 @@ export const MENU: MenuCategory[] = [
             },
             {
                 name: 'Trio de Pâtes',
-                description: "Penne à l'arrabbiata, tortellini au jambon et à la crème, cannelloni",
+                description: "Penne à l'arrabbiata, tortellini au jambon et à la crème, ravioli ricotta épinards",
                 price: '17,90 €',
                 allergens: [9, 12],
             },
             {
                 name: 'Tagliolini Pomodoro Basilico',
-                description: 'Pâtes fines à la sauce tomate et basilic',
+                description: 'Tagliolini à la sauce tomate et basilic',
                 price: '12,90 €',
                 allergens: [1, 12],
             },
@@ -276,12 +289,12 @@ export const MENU: MenuCategory[] = [
             },
             {
                 name: "Tagliatelle Carbonara à l'Italienne",
-                description: 'Rigatoni, œufs, pecorino et guanciale',
+                description: 'Tagliatelle, œufs, pecorino et guanciale',
                 price: '16,90 €',
                 allergens: [1, 3, 7],
             },
             {
-                name: 'Strascinate aux Fruits de Mer',
+                name: 'Linguine aux Fruits de Mer',
                 description: 'Pâtes aux fruits de mer',
                 price: '23,50 €',
                 allergens: [1, 2, 4, 12],
@@ -298,177 +311,160 @@ export const MENU: MenuCategory[] = [
                 price: '16,00 €',
                 allergens: [1, 7, 12],
             },
-            {
-                name: 'Fave e Cicorie',
-                description: 'Purée de fèves sèches, chicorée sauvage',
-                price: '24,00 €',
-                allergens: [1, 7],
-                note: 'Sur commande',
-            },
         ],
     },
     {
         title: 'Nos Pizzas',
-        subCategories: [
+        items: [
             {
-                title: 'Pizzas Classiques',
-                items: [
-                    {
-                        name: 'Margherita',
-                        description: 'Tomate, mozzarella',
-                        price: '11,50 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Diavola',
-                        description: 'Tomate, mozzarella, salami piquant',
-                        price: '14,50 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Napoletana',
-                        description: 'Tomate, mozzarella, anchois, câpres',
-                        price: '12,90 €',
-                        allergens: [1, 4, 7, 12],
-                    },
-                    {
-                        name: '4 Saisons',
-                        description: 'Tomate, mozzarella, jambon, champignons, olives, artichauts',
-                        price: '14,20 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Salami',
-                        description: 'Tomate, mozzarella, salami doux',
-                        price: '14,20 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Tonno e Cipolla',
-                        description: 'Tomate, mozzarella, thon, oignons, câpres',
-                        price: '15,50 €',
-                        allergens: [1, 4, 7, 12],
-                    },
-                    {
-                        name: 'Calzone',
-                        description: 'Tomate, mozzarella, jambon, champignons',
-                        price: '14,50 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Frutti di Mare',
-                        description: 'Tomate, mozzarella, ail, calamars, moules, crevettes',
-                        price: '16,90 €',
-                        allergens: [1, 2, 7, 14],
-                    },
-                    {
-                        name: 'Prosciutto',
-                        description: 'Tomate, mozzarella, jambon',
-                        price: '12,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Prosciutto Funghi',
-                        description: 'Tomate, mozzarella, jambon, champignons',
-                        price: '13,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: '4 Fromages',
-                        description: 'Tomate, mozzarella, parmesan, taleggio, gorgonzola',
-                        price: '14,30 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Capricciosa',
-                        description: 'Tomate, mozzarella, jambon, champignons, artichauts, olives',
-                        price: '14,50 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Végétarienne',
-                        description: 'Tomate, mozzarella, champignons, olives, peperoni',
-                        price: '14,30 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Hawai',
-                        description: 'Tomate, mozzarella, ananas, jambon',
-                        price: '14,90 €',
-                        allergens: [1, 7],
-                    },
-                ],
+                name: 'Lecce',
+                description: 'Tomate, mozzarella, saucisses italienne, scamorza fumée, oignons',
+                price: '18,00 €',
+                allergens: [1, 7],
             },
             {
-                title: "Pizzas de la Scala d'Angolo",
-                items: [
-                    {
-                        name: 'Lecce',
-                        description: 'Tomate, mozzarella, saucisses italienne, scarmoza fumé, oignons',
-                        price: '18,00 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Norcia',
-                        description: 'Tomate, mozzarella, gorgonzola, speck, champignons, noix',
-                        price: '18,00 €',
-                        allergens: [1, 7, 8],
-                    },
-                    {
-                        name: 'Galipoli',
-                        description: "Tomate, mozzarella, pesto de rucola, rucola, scampis à l'ail, tomates cerises, oignons",
-                        price: '20,90 €',
-                        allergens: [1, 2, 7],
-                    },
-                    {
-                        name: 'Brindisi',
-                        description: 'Tomate, mozzarella, jambon de Parme, rucola, buffala, tomates cerises, olives noires',
-                        price: '19,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Scala di Furno',
-                        description: 'Tomate, mozzarella, chèvre, jambon',
-                        price: '17,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Calabrese',
-                        description: "Tomate, mozzarella, n'duja, tomates cerises, rucola",
-                        price: '16,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Metaponte',
-                        description: 'Tomate, mozzarella, salami piquant, poivrons, oignons, olives noires',
-                        price: '16,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Mortazza',
-                        description: 'Mozzarella, mortadelle, burrata, pistaches, pesto de rucola, rucola',
-                        price: '19,00 €',
-                        allergens: [1, 7, 8],
-                    },
-                    {
-                        name: 'Tartufa',
-                        description: 'Mozzarella, crème de tartufo, coppa, rucola, buffala',
-                        price: '19,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Salerno',
-                        description: 'Mozzarella, salsiccia, cime di rape',
-                        price: '17,90 €',
-                        allergens: [1, 7],
-                    },
-                    {
-                        name: 'Tiroles',
-                        description: 'Mozzarella, speck et radicchio, taleggio',
-                        price: '18,00 €',
-                        allergens: [1, 7],
-                    },
-                ],
+                name: 'Norcia',
+                description: 'Tomate, mozzarella, gorgonzola, speck, champignons, noix',
+                price: '18,00 €',
+                allergens: [1, 5, 7],
+            },
+            {
+                name: 'Gallipoli',
+                description: "Tomate, mozzarella, pesto di rucola, rucola, scampis à l'ail, tomates cerises, oignons",
+                price: '20,90 €',
+                allergens: [1, 2, 5, 7],
+            },
+            {
+                name: 'Brindisi',
+                description: 'Tomate, mozzarella, jambon de Parme, rucola, buffala, tomates cerises, olives noires',
+                price: '19,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Metaponte',
+                description: 'Tomate, mozzarella, salami piquant, poivrons, oignons, olives noires',
+                price: '16,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Calabrese',
+                description: "Tomate, mozzarella, n'duja, tomates cerises, rucola",
+                price: '16,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Mortaza',
+                description: 'Mozzarella, mortadelle, burrata, pistaches, crème de pistache, rucola',
+                price: '19,00 €',
+                allergens: [1, 8],
+            },
+            {
+                name: 'Tartufa',
+                description: 'Mozzarella, crème de tartufo, coppa, rucola, buffala',
+                price: '19,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Salerno',
+                description: 'Mozzarella, salsiccia, cime di rape',
+                price: '17,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Tiroles',
+                description: 'Mozzarella, speck et radicchio, taleggio',
+                price: '18,00 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Scarla di Forno',
+                description: 'Tomate, mozzarella, chèvre, jambon',
+                price: '17,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Végétarienne',
+                description: 'Tomate, mozzarella, champignons, olives, peperoni',
+                price: '14,30 €',
+                allergens: [3, 7],
+            },
+            {
+                name: 'Margarita',
+                description: 'Tomate, mozzarella',
+                price: '11,50 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Diavola',
+                description: 'Tomate, mozzarella, salami piquant',
+                price: '14,50 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Napoletana',
+                description: 'Tomate, mozzarella, anchois, câpres',
+                price: '12,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: '4 Stagioni',
+                description: 'Tomate, mozzarella, jambon, champignons, olives, artichauts, anchois',
+                price: '14,20 €',
+                allergens: [1, 4, 7],
+            },
+            {
+                name: 'Salami',
+                description: 'Tomate, mozzarella, salami doux',
+                price: '14,20 €',
+                allergens: [1, 5, 7],
+            },
+            {
+                name: 'Tonno e Chipolla',
+                description: 'Tomate, mozzarella, thon, oignons, câpres',
+                price: '15,50 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Calzone',
+                description: 'Tomate, mozzarella, jambon, champignons',
+                price: '14,50 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Frutti di Mare',
+                description: 'Tomate, mozzarella, ail, calamars, moules, crevettes',
+                price: '16,90 €',
+                allergens: [1, 7, 8],
+            },
+            {
+                name: 'Prosciutto',
+                description: 'Tomate, mozzarella, jambon',
+                price: '12,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Prosciutto Funghi',
+                description: 'Tomate, mozzarella, jambon, champignons',
+                price: '13,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: '4 Fromages',
+                description: 'Tomate, mozzarella, parmesan, taleggio, gorgonzola',
+                price: '14,30 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Capricciosa',
+                description: 'Tomate, mozzarella, jambon, champignons, artichauts, olives',
+                price: '14,50 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Hawai',
+                description: 'Tomate, mozzarella, ananas, jambon',
+                price: '14,90 €',
+                allergens: [1, 7],
             },
         ],
     },
@@ -478,6 +474,12 @@ export const MENU: MenuCategory[] = [
             {
                 name: 'Lasagne Maison',
                 description: 'Lasagnes traditionnelles gratinées',
+                price: '18,90 €',
+                allergens: [1, 7],
+            },
+            {
+                name: 'Canneloni Maison',
+                description: 'Canneloni traditionnelles gratinées',
                 price: '18,90 €',
                 allergens: [1, 7],
             },
@@ -495,7 +497,7 @@ export const MENU: MenuCategory[] = [
             },
             {
                 name: 'Tortellini à la Boscaiola',
-                description: 'Tortellini, champignons et crème',
+                description: 'Tortellini, jambon, champignons et crème',
                 price: '19,90 €',
                 allergens: [1, 7],
             },
@@ -511,8 +513,8 @@ export const MENU: MenuCategory[] = [
                 allergens: [7, 12],
             },
             {
-                name: 'Risotto au Safran avec Taleggio et Pancetta',
-                description: 'Risotto, safran, pancetta, fromage taleggio',
+                name: 'Risotto avec Taleggio et Pancetta',
+                description: 'Risotto, pancetta, fromage taleggio',
                 price: '23,00 €',
                 allergens: [7, 12],
             },
@@ -540,7 +542,7 @@ export const MENU: MenuCategory[] = [
                 allergens: [1],
             },
             {
-                name: 'Wäinzossis mat Moschterzooss',
+                name: 'Wäinzoossis mat Moschterzooss',
                 description: 'Saucisses au vin blanc et moutarde',
                 price: '21,00 €',
                 allergens: [10, 12],
@@ -552,7 +554,7 @@ export const MENU: MenuCategory[] = [
                 allergens: [12],
             },
             {
-                name: 'Assiette de Jambon',
+                name: 'Assiette de Jambon Parme',
                 description: 'Jambon cru, frites, salade',
                 price: '19,00 €',
                 allergens: [12],
@@ -562,25 +564,25 @@ export const MENU: MenuCategory[] = [
     {
         title: 'Nos Omelettes',
         items: [
-            { name: 'Nature', price: '17,00 €', allergens: [3] },
-            { name: 'Fromage', price: '18,50 €', allergens: [3, 7] },
-            { name: 'Jambon Champignons', price: '19,10 €', allergens: [3] },
-            { name: 'Jambon Fromage', price: '19,10 €', allergens: [3, 7] },
+            { name: 'Nature', description: 'Frites, salade', price: '14,90 €', allergens: [3, 7, 12] },
+            { name: 'Fromage', description: 'Frites, salade', price: '15,90 €', allergens: [3, 7, 12] },
+            { name: 'Jambon Champignons', description: 'Frites, salade', price: '16,90 €', allergens: [3, 7, 12] },
+            { name: 'Jambon Fromage', description: 'Frites, salade', price: '16,90 €', allergens: [3, 7, 12] },
         ],
     },
     {
         title: 'Nos Poissons',
         items: [
             {
-                name: "Cabillaud Pané à la Sauce Rémoulade à l'Ail",
-                description: 'Filet de cabillaud pané',
+                name: 'Cabillaud Pané à la Sauce Rémoulade',
+                description: 'Cabillaud pané à la sauce rémoulade',
                 price: '22,50 €',
                 allergens: [1, 3, 4, 10],
             },
             {
                 name: 'Poulpe Grillé sur un Lit de Purée de Pommes de Terre',
                 description: 'Poulpe grillé servi sur purée de pommes de terre',
-                price: '26,90 €',
+                price: '31,90 €',
                 allergens: [7, 14],
             },
             {
@@ -617,16 +619,28 @@ export const MENU: MenuCategory[] = [
         title: 'Nos Viandes',
         items: [
             {
-                name: "Saucisse Italienne Sauce à l'Ail",
-                description: "Saucisse italienne grillée, sauce à l'ail",
+                name: "Saucisses Italienne Sauce à l'Ail",
+                description: "Saucisses italienne grillées, parfumées au fenouil, sauce à l'ail",
                 price: '22,50 €',
                 allergens: [7],
             },
             {
-                name: 'Polenta avec des Boulettes de Viande Sauce Tomate',
-                description: 'Polenta crémeuse, boulettes sauce tomate',
+                name: 'Boulettes de Viande sur son Lit de Polenta',
+                description: 'Boulettes, polenta crémeuse, sauce tomate',
                 price: '22,50 €',
                 allergens: [1, 3, 12],
+            },
+            {
+                name: 'Filet de Bœuf aux Cèpes',
+                description: 'Bœuf, cèpes, frites, salade',
+                price: '32,50 €',
+                allergens: [3, 10, 12],
+            },
+            {
+                name: 'Tagliata de Bœuf Rucola et Copeaux de Parmesan',
+                description: 'Bœuf, rucola, parmesan, frites, salade',
+                price: '28,50 €',
+                allergens: [7, 12],
             },
             {
                 name: 'Escalope de Veau Grillé',
@@ -638,31 +652,25 @@ export const MENU: MenuCategory[] = [
                 name: 'Escalope de Veau Panée',
                 description: 'Escalope de veau, chapelure, œufs, farine, huile',
                 price: '25,00 €',
-                allergens: [1, 3],
+                allergens: [1, 3, 12],
             },
             {
                 name: 'Escalope Milanaise',
                 description: "Escalope panée à l'italienne",
                 price: '22,00 €',
-                allergens: [1, 3, 7],
+                allergens: [1, 3, 12],
             },
             {
                 name: 'Cordon Bleu Maison Nature',
-                description: 'Porc, jambon, fromage',
+                description: 'Jambon, fromage, frites, salade',
                 price: '23,50 €',
-                allergens: [1, 3, 7],
-            },
-            {
-                name: 'Cordon Bleu de Veau',
-                description: 'Veau, jambon, fromage',
-                price: '26,90 €',
-                allergens: [1, 3, 7],
+                allergens: [1, 3, 7, 12],
             },
             {
                 name: 'Cordon Bleu Savoyard Sauce Forestière',
-                description: 'Veau, fromage savoyard et sauce aux girolles',
+                description: 'Fromage savoyard et sauce forestière',
                 price: '27,90 €',
-                allergens: [1, 3, 7],
+                allergens: [1, 3, 7, 12],
             },
             {
                 name: 'Entrecôte Grillé',
@@ -681,7 +689,7 @@ export const MENU: MenuCategory[] = [
                 allergens: [1, 7, 9, 12],
             },
             {
-                name: "Sauce d'Accompagnement",
+                name: "Sauces d'Accompagnement",
                 description: "Gorgonzola, crème champignons, poivre vert, à l'ail, provençale",
                 price: '1,50 €',
                 allergens: [1, 7, 9, 12],
@@ -690,54 +698,86 @@ export const MENU: MenuCategory[] = [
     },
     {
         title: 'Nos Desserts',
-        items: [
+        subCategories: [
             {
-                name: 'Tiramisu',
-                description: 'Mascarpone, biscuits, espresso, œufs, sucre, cacao',
-                price: '10,50 €',
-                allergens: [1, 3, 7],
+                title: 'Desserts Vitrine',
+                items: [
+                    {
+                        name: 'Tiramisu',
+                        description: 'Mascarpone, biscuits, espresso, œufs, sucre, cacao',
+                        price: '8,50 €',
+                        allergens: [1, 3, 7],
+                    },
+                    {
+                        name: 'Crème Brûlée',
+                        description: "Crème fraîche, lait, jaunes d'œufs, sucre, vanille",
+                        price: '8,50 €',
+                        allergens: [3, 7],
+                    },
+                    {
+                        name: 'Mousse au Chocolat',
+                        description: 'Chocolat noir, œufs, sucre, beurre',
+                        price: '8,50 €',
+                        allergens: [3, 7],
+                    },
+                    {
+                        name: 'Tarte aux Pommes',
+                        description: 'Pommes, pâte brisée, sucre, œufs',
+                        price: '8,50 €',
+                        allergens: [1, 3, 7],
+                    },
+                    {
+                        name: 'Panna Cotta',
+                        description: 'Crème, lait, sucre, vanille, coulis de fruits rouges',
+                        price: '8,50 €',
+                        allergens: [7],
+                    },
+                    {
+                        name: 'Café Gourmand',
+                        description: "Café espresso accompagné d'un assortiment de mini-desserts",
+                        price: '8,50 €',
+                        allergens: [1, 3, 7],
+                    },
+                ],
             },
             {
-                name: 'Crème Brûlée',
-                description: "Crème fraîche, lait, jaunes d'œufs, sucre, vanille",
-                price: '9,50 €',
-                allergens: [3, 7],
-            },
-            {
-                name: 'Mousse au Chocolat',
-                description: 'Chocolat noir, œufs, sucre, beurre',
-                price: '9,50 €',
-                allergens: [3, 7],
-            },
-            {
-                name: 'Semifreddo aux Châtaignes Coulis de Chocolat',
-                description: 'Crème, châtaignes, sucre, œufs, chocolat, cacao',
-                price: '12,00 €',
-                allergens: [1, 3, 7],
-            },
-            {
-                name: 'Café Gourmand',
-                description: "Café espresso accompagné d'un assortiment de mini-desserts",
-                price: '10,00 €',
-                allergens: [1, 3, 7],
-            },
-            {
-                name: 'Tarte aux Pommes',
-                description: 'Pommes, pâte brisée, sucre, œufs',
-                price: '9,90 €',
-                allergens: [1, 3, 7],
-            },
-            {
-                name: 'Panna Cotta',
-                description: 'Crème, lait, sucre, vanille, coulis de fruits rouges',
-                price: '8,50 €',
-                allergens: [7],
-            },
-            {
-                name: 'Dame Blanche',
-                description: 'Glace vanille, sauce chocolat chaud maison, chantilly',
-                price: '9,50 €',
-                allergens: [7],
+                title: 'Desserts Glacés',
+                items: [
+                    {
+                        name: 'Semifreddo aux Châtaignes Coulis de Chocolat',
+                        description: 'Crème, châtaignes, sucre, œufs, chocolat, cacao',
+                        price: '12,00 €',
+                        allergens: [1, 3, 7],
+                    },
+                    {
+                        name: 'Dame Blanche',
+                        description: 'Glace vanille, sauce chocolat chaud maison, chantilly',
+                        price: '10,00 €',
+                        allergens: [7],
+                    },
+                    {
+                        name: 'Café Glacé',
+                        price: '10,00 €',
+                        allergens: [7],
+                    },
+                    {
+                        name: 'Sorbets',
+                        description: 'Citron · Passion · Mangue · Poire Williams · Pomme verte · Framboise · Melon',
+                        pricing: [
+                            { label: '1 boule', price: '2,90 €' },
+                            { label: '2 boules', price: '5,50 €' },
+                        ],
+                    },
+                    {
+                        name: 'Glaces',
+                        description: 'Spéculoos · Vanille · Moka · Chocolat Blanc · Chocolat Nuts · Coco · Pistache',
+                        pricing: [
+                            { label: '1 boule', price: '2,90 €' },
+                            { label: '2 boules', price: '5,50 €' },
+                        ],
+                        allergens: [7],
+                    },
+                ],
             },
         ],
     },
