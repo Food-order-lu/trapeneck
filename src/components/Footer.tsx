@@ -31,7 +31,7 @@ export default function Footer() {
                         </div>
                         <div className={styles.hoursGroup} style={{ marginTop: '10px' }}>
                             <p className={styles.hoursTitle}>Cuisine</p>
-                            <p className={styles.hours}>10h00 - 14h00</p>
+                            <p className={styles.hours}>11h30 - 14h00</p>
                             <p className={styles.hours}>18h00 - 22h00</p>
                         </div>
                     </div>

@@ -78,7 +78,7 @@ export default function ContactPage() {
                                     <div className={styles.hoursList}>
                                         <div className={styles.hourItem}>
                                             <span className={styles.day}>Déjeuner</span>
-                                            <span className={styles.time}>10h00 - 14h00</span>
+                                            <span className={styles.time}>11h30 - 14h00</span>
                                         </div>
                                         <div className={styles.hourItem}>
                                             <span className={styles.day}>Dîner</span>
