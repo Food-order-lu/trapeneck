@@ -781,20 +781,4 @@ export const MENU: MenuCategory[] = [
             },
         ],
     },
-    {
-        title: 'Boissons',
-        subCategories: [
-            {
-                title: 'Softs',
-                items: [
-                    { name: 'Coca-Cola 50cl', price: '3,00 €' },
-                    { name: 'Fanta 50cl', price: '3,00 €' },
-                    { name: 'Sprite 50cl', price: '3,00 €' },
-                    { name: 'Fuze Tea Pêche 50cl', price: '3,50 €' },
-                    { name: 'Vittel 50cl', price: '2,70 €' },
-                    { name: 'Super Bock', price: '2,20 €', allergens: [1, 12] },
-                ],
-            },
-        ],
-    },
 ];
