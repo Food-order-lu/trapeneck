@@ -20,11 +20,15 @@ export interface MenuItem {
     allergens?: number[];
     /** Side note such as "Sur commande" or "24h à l'avance". */
     note?: string;
+    /** Hide this item in the delivery view (default = available everywhere). */
+    delivery?: boolean;
 }
 
 export interface MenuSubCategory {
     title: string;
     items: MenuItem[];
+    /** Hide the whole sub-category in the delivery view. */
+    delivery?: boolean;
 }
 
 export interface MenuCategory {
@@ -103,12 +107,14 @@ export const MENU: MenuCategory[] = [
                     { label: '2P', price: '37,90 €' },
                 ],
                 allergens: [3, 7, 10, 12],
+                delivery: false,
             },
             {
                 name: 'Tartare de Bœuf',
                 description: 'Frites, salade',
                 price: '20,50 €',
                 allergens: [3, 10, 12],
+                delivery: false,
             },
         ],
     },
@@ -158,6 +164,7 @@ export const MENU: MenuCategory[] = [
                     { label: '12P', price: '21,50 €' },
                 ],
                 allergens: [7, 12],
+                delivery: false,
             },
             {
                 name: 'Cuisses de Grenouille',
@@ -167,6 +174,7 @@ export const MENU: MenuCategory[] = [
                     { label: '12P', price: '21,50 €' },
                 ],
                 allergens: [7, 12],
+                delivery: false,
             },
             {
                 name: 'Minestrone',
@@ -713,6 +721,7 @@ export const MENU: MenuCategory[] = [
                         description: "Crème fraîche, lait, jaunes d'œufs, sucre, vanille",
                         price: '8,50 €',
                         allergens: [3, 7],
+                        delivery: false,
                     },
                     {
                         name: 'Mousse au Chocolat',
@@ -725,6 +734,7 @@ export const MENU: MenuCategory[] = [
                         description: 'Pommes, pâte brisée, sucre, œufs',
                         price: '8,50 €',
                         allergens: [1, 3, 7],
+                        delivery: false,
                     },
                     {
                         name: 'Panna Cotta',
@@ -737,11 +747,13 @@ export const MENU: MenuCategory[] = [
                         description: "Café espresso accompagné d'un assortiment de mini-desserts",
                         price: '8,50 €',
                         allergens: [1, 3, 7],
+                        delivery: false,
                     },
                 ],
             },
             {
                 title: 'Desserts Glacés',
+                delivery: false,
                 items: [
                     {
                         name: 'Semifreddo aux Châtaignes Coulis de Chocolat',
