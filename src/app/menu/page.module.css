@@ -41,6 +41,11 @@
     justify-content: center;
     gap: 0;
     margin-bottom: var(--spacing-lg);
+    position: sticky;
+    top: 80px;
+    z-index: 20;
+    background: var(--color-bg-light);
+    padding: var(--spacing-sm) 0;
 }
 
 .modeBtn {
@@ -76,37 +81,6 @@
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-white);
     box-shadow: 0 6px 18px rgba(255, 107, 53, 0.35);
-}
-
-/* ---------- Order CTA ---------- */
-
-.ctaBar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-2xl);
-    position: sticky;
-    top: 80px;
-    z-index: 10;
-    background: var(--color-bg-light);
-    padding: var(--spacing-sm) 0;
-}
-
-.orderCta {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--color-white);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--radius-md);
-    font-weight: 700;
-    font-size: 1.05rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-}
-
-.orderCta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.55);
 }
 
 /* ---------- Category sections ---------- */
@@ -274,7 +248,7 @@
         padding-top: 60px;
     }
 
-    .ctaBar {
+    .modeBar {
         top: 60px;
     }
 
@@ -296,11 +270,6 @@
 
     .itemPrice {
         font-size: 1rem;
-    }
-
-    .orderCta {
-        padding: var(--spacing-sm) var(--spacing-lg);
-        font-size: 0.95rem;
     }
 
     .modeBtn {

@@ -3,7 +3,6 @@
 import { useMemo, useState } from 'react';
 import type { MenuCategory } from '@/data/menu';
 import MenuCategorySection from './MenuCategorySection';
-import { ORDER_URL } from '@/lib/order';
 import styles from '@/app/menu/page.module.css';
 
 type Mode = 'sur-place' | 'livraison';
@@ -55,17 +54,6 @@ export default function MenuView({ menu }: Props) {
                 >
                     🛵 Livraison
                 </button>
-            </div>
-
-            <div className={styles.ctaBar}>
-                <a
-                    href={ORDER_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.orderCta}
-                >
-                    Commander en Ligne
-                </a>
             </div>
 
             {displayed.map((category) => (

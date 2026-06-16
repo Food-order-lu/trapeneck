@@ -114,7 +114,6 @@ export const MENU: MenuCategory[] = [
                 description: 'Frites, salade',
                 price: '20,50 €',
                 allergens: [3, 10, 12],
-                delivery: false,
             },
         ],
     },
@@ -667,18 +666,6 @@ export const MENU: MenuCategory[] = [
                 description: "Escalope panée à l'italienne",
                 price: '22,00 €',
                 allergens: [1, 3, 12],
-            },
-            {
-                name: 'Cordon Bleu Maison Nature',
-                description: 'Jambon, fromage, frites, salade',
-                price: '23,50 €',
-                allergens: [1, 3, 7, 12],
-            },
-            {
-                name: 'Cordon Bleu Savoyard Sauce Forestière',
-                description: 'Fromage savoyard et sauce forestière',
-                price: '27,90 €',
-                allergens: [1, 3, 7, 12],
             },
             {
                 name: 'Entrecôte Grillé',
