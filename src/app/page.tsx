@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Hero';
 import MenuSection from '@/components/MenuSection';
+import PublicationsSection from '@/components/PublicationsSection';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -11,6 +12,9 @@ export default function Home() {
 
             {/* Menu du Jour Section */}
             <MenuSection />
+
+            {/* Publications / Événements (prototype) */}
+            <PublicationsSection />
 
             {/* About Section */}
             <section className={styles.section} id="about">

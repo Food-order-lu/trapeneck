@@ -136,10 +136,74 @@ export async function deleteGalleryImage(id: string, imageUrl?: string): Promise
     }
 }
 
+// ============================================================================
+// Publications / Événements — collection isolée _test pour le prototype
+// (à renommer en 'trapeneck_publications' lors de la promotion en prod)
+// ============================================================================
+
+const PUBLICATIONS_COLLECTION = 'trapeneck_publications_test';
+
+export interface Publication {
+    id: string;
+    title: string;
+    dateLabel: string;
+    description: string;
+    imageUrl: string;
+    createdAt: string;
+}
+
+export async function addPublication(data: Omit<Publication, 'id' | 'createdAt'>): Promise<{ success: boolean; error?: string }> {
+    try {
+        const docRef = doc(collection(db, PUBLICATIONS_COLLECTION));
+        await setDoc(docRef, {
+            ...data,
+            createdAt: new Date().toISOString(),
+        });
+        return { success: true };
+    } catch (error: any) {
+        console.error('Erreur ajout publication:', error);
+        return { success: false, error: error.message || 'Erreur inconnue' };
+    }
+}
+
+export async function getPublications(): Promise<Publication[]> {
+    try {
+        const q = query(collection(db, PUBLICATIONS_COLLECTION), orderBy('createdAt', 'desc'));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        } as Publication));
+    } catch (error) {
+        console.error('Erreur lecture publications:', error);
+        return [];
+    }
+}
+
+export async function deletePublication(id: string, imageUrl?: string): Promise<{ success: boolean; error?: string }> {
+    try {
+        await deleteDoc(doc(db, PUBLICATIONS_COLLECTION, id));
+
+        if (imageUrl && imageUrl.includes('firebasestorage.googleapis.com')) {
+            try {
+                const storageRef = ref(storage, imageUrl);
+                await deleteObject(storageRef);
+            } catch (storageError) {
+                console.warn('Erreur suppression Storage:', storageError);
+            }
+        }
+
+        return { success: true };
+    } catch (error: any) {
+        console.error('Erreur suppression publication:', error);
+        return { success: false, error: error.message || 'Erreur inconnue' };
+    }
+}
+
 // Fonction d'upload d'image vers Firebase Storage avec suivi de progression
 export async function uploadImage(
-    file: File, 
-    folder: 'menu' | 'gallery', 
+    file: File,
+    folder: 'menu' | 'gallery' | 'publications_test',
     onProgress?: (percent: number) => void
 ): Promise<string | null> {
     return new Promise((resolve, reject) => {
