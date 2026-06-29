@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { saveMenuUrl, getMenuUrl, addGalleryImage, getGalleryImages, deleteGalleryImage, GalleryImage, uploadImage } from '@/lib/firebase';
 import { resizeImage, createLocalPreview } from '@/lib/image';
+import PublicationsAdmin from '@/components/PublicationsAdmin';
 import styles from './page.module.css';
 
 const ADMIN_PASSWORD = 'Trapeneck5886**';
@@ -19,7 +20,7 @@ export default function AdminPage() {
     // Gallery States
     const [galleryCategory, setGalleryCategory] = useState<'restaurant' | 'events'>('restaurant');
     const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
-    const [activeTab, setActiveTab] = useState<'menu' | 'gallery'>('menu');
+    const [activeTab, setActiveTab] = useState<'menu' | 'gallery' | 'publications'>('menu');
 
     // Common Upload States
     const [isUploading, setIsUploading] = useState(false);
@@ -253,9 +254,25 @@ export default function AdminPage() {
                     >
                         🖼️ Gestion Galerie
                     </button>
+                    <button
+                        onClick={() => setActiveTab('publications')}
+                        style={{
+                            padding: '0.75rem 1.5rem',
+                            borderRadius: '2rem',
+                            border: 'none',
+                            background: activeTab === 'publications' ? '#E31837' : '#f0f0f0',
+                            color: activeTab === 'publications' ? 'white' : '#333',
+                            fontWeight: 'bold',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        📰 Publications
+                    </button>
                 </div>
 
-                {activeTab === 'menu' ? (
+                {activeTab === 'publications' ? (
+                    <PublicationsAdmin />
+                ) : activeTab === 'menu' ? (
                     <>
                         <div className={styles.uploadSection}>
                             <h2>📋 Menu de la Semaine</h2>
