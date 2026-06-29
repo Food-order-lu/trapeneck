@@ -53,7 +53,7 @@ export default function PublicationsAdmin() {
             const compressedFile = new File([compressedBlob], imageFile.name, { type: imageFile.type });
             setUploadProgress(30);
 
-            const imageUrl = await uploadImage(compressedFile, 'publications_test', (p) => {
+            const imageUrl = await uploadImage(compressedFile, 'publications', (p) => {
                 setUploadProgress(Math.round(30 + p * 0.6));
             });
 
@@ -103,7 +103,7 @@ export default function PublicationsAdmin() {
         <div className={styles.uploadSection}>
             <h2>📰 Publications &amp; Événements</h2>
             <p style={{ color: '#666', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-                Prototype isolé — sauvegarde sur la collection <code>trapeneck_publications_test</code>.
+                Publications visibles sur la page d&apos;accueil du site, sous le Menu du Jour.
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>

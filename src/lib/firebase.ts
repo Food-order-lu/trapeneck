@@ -137,11 +137,10 @@ export async function deleteGalleryImage(id: string, imageUrl?: string): Promise
 }
 
 // ============================================================================
-// Publications / Événements — collection isolée _test pour le prototype
-// (à renommer en 'trapeneck_publications' lors de la promotion en prod)
+// Publications / Événements
 // ============================================================================
 
-const PUBLICATIONS_COLLECTION = 'trapeneck_publications_test';
+const PUBLICATIONS_COLLECTION = 'trapeneck_publications';
 
 export interface Publication {
     id: string;
@@ -203,7 +202,7 @@ export async function deletePublication(id: string, imageUrl?: string): Promise<
 // Fonction d'upload d'image vers Firebase Storage avec suivi de progression
 export async function uploadImage(
     file: File,
-    folder: 'menu' | 'gallery' | 'publications_test',
+    folder: 'menu' | 'gallery' | 'publications',
     onProgress?: (percent: number) => void
 ): Promise<string | null> {
     return new Promise((resolve, reject) => {
