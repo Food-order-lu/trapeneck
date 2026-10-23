@@ -1,15 +1,22 @@
+import Link from 'next/link';
 import type { Publication } from '@/lib/firebase';
 import styles from './PublicationCard.module.css';
 
 interface Props {
     publication: Publication;
+    // When set, the whole card links there (home page → event in the gallery).
+    href?: string;
 }
 
-export default function PublicationCard({ publication }: Props) {
-    const { title, dateLabel, description, imageUrl } = publication;
+export function publicationAnchor(id: string): string {
+    return `pub-${id}`;
+}
 
-    return (
-        <article className={styles.card}>
+export default function PublicationCard({ publication, href }: Props) {
+    const { id, title, dateLabel, description, imageUrl } = publication;
+
+    const content = (
+        <>
             <div className={styles.imageWrapper}>
                 {imageUrl ? (
                     <img src={imageUrl} alt={title} className={styles.image} loading="lazy" />
@@ -20,6 +27,16 @@ export default function PublicationCard({ publication }: Props) {
                 <h3 className={styles.title}>{title}</h3>
                 {description ? <p className={styles.description}>{description}</p> : null}
             </div>
+        </>
+    );
+
+    return (
+        <article className={styles.card} id={href ? undefined : publicationAnchor(id)}>
+            {href ? (
+                <Link href={href} className={styles.link} aria-label={`Voir l'événement : ${title}`}>
+                    {content}
+                </Link>
+            ) : content}
         </article>
     );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getPublications, type Publication } from '@/lib/firebase';
-import PublicationCard from './PublicationCard';
+import PublicationCard, { publicationAnchor } from './PublicationCard';
 import styles from './PublicationsSection.module.css';
 
 export default function PublicationsSection() {
@@ -29,7 +29,11 @@ export default function PublicationsSection() {
                 </div>
                 <div className={styles.grid}>
                     {publications.map((pub) => (
-                        <PublicationCard key={pub.id} publication={pub} />
+                        <PublicationCard
+                            key={pub.id}
+                            publication={pub}
+                            href={`/galerie#${publicationAnchor(pub.id)}`}
+                        />
                     ))}
                 </div>
             </div>

@@ -56,6 +56,19 @@
     background: var(--color-accent-dark);
 }
 
+/* PUBLICATIONS (Événements tab) */
+.publicationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.publicationsGrid > article {
+    scroll-margin-top: 7rem;
+}
+
 /* MASONRY LAYOUT */
 .grid {
     column-count: 3;
@@ -187,6 +200,10 @@
 
     .grid {
         column-count: 1;
+    }
+
+    .publicationsGrid {
+        grid-template-columns: 1fr;
     }
 
     .closeButton {

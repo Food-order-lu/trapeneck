@@ -65,7 +65,7 @@ export default function ContactPage() {
                                     <div className={styles.hoursList}>
                                         <div className={styles.hourItem}>
                                             <span className={styles.day}>Lundi - Samedi</span>
-                                            <span className={styles.time}>10h00 - 22h00</span>
+                                            <span className={styles.time}>10h00 - 00h00</span>
                                         </div>
                                         <div className={styles.hourItem}>
                                             <span className={styles.day}>Dimanche</span>
