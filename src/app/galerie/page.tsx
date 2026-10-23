@@ -10,6 +10,7 @@ export default function GalleryPage() {
     const [publications, setPublications] = useState<Publication[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'restaurant' | 'events'>('all');
+    const [lightbox, setLightbox] = useState<{ url: string; alt: string } | null>(null);
 
     useEffect(() => {
         const loadImages = async () => {
@@ -30,6 +31,15 @@ export default function GalleryPage() {
         if (!hash.startsWith('#pub-')) return;
         document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, [loading]);
+
+    useEffect(() => {
+        if (!lightbox) return;
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [lightbox]);
+
+    const openLightbox = (url: string, alt: string) => setLightbox({ url, alt });
 
     const filteredImages = filter === 'all'
         ? images
@@ -72,7 +82,7 @@ export default function GalleryPage() {
                 {showPublications && (
                     <div className={styles.publicationsGrid}>
                         {publications.map((pub) => (
-                            <PublicationCard key={pub.id} publication={pub} />
+                            <PublicationCard key={pub.id} publication={pub} onImageClick={openLightbox} />
                         ))}
                     </div>
                 )}
@@ -81,7 +91,13 @@ export default function GalleryPage() {
                         filteredImages.map((img) => (
                             <div key={img.id} className={styles.imageCard}>
                                 <div className={styles.imageWrapper}>
-                                    <img src={img.url} alt="Restaurant Trapeneck" loading="lazy" />
+                                    <img
+                                        src={img.url}
+                                        alt="Restaurant Trapeneck"
+                                        loading="lazy"
+                                        className={styles.zoomable}
+                                        onClick={() => openLightbox(img.url, 'Restaurant Trapeneck')}
+                                    />
                                 </div>
                             </div>
                         ))
@@ -92,6 +108,19 @@ export default function GalleryPage() {
                     ) : null}
                 </div>
                 </>
+            )}
+            {lightbox && (
+                <div className={styles.lightbox} onClick={() => setLightbox(null)} role="dialog" aria-modal="true">
+                    <button className={styles.closeButton} onClick={() => setLightbox(null)} aria-label="Fermer">
+                        ×
+                    </button>
+                    <img
+                        src={lightbox.url}
+                        alt={lightbox.alt}
+                        className={styles.lightboxImage}
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
             )}
         </main>
     );

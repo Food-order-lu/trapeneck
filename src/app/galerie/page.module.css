@@ -128,6 +128,10 @@
 }
 
 /* LIGHTBOX */
+.zoomable {
+    cursor: zoom-in;
+}
+
 .lightbox {
     position: fixed;
     top: 0;

@@ -80,3 +80,7 @@
 .card:target {
     box-shadow: 0 0 0 3px var(--color-primary), var(--shadow-lg);
 }
+
+.zoomable {
+    cursor: zoom-in;
+}
